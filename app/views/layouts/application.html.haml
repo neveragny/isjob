@@ -12,7 +12,7 @@
     %div.topbar
       %div.fill
         %div.container
-          = link_to 'GetAJob', '#', :class => 'brand'
+          = link_to 'GetAJob', root_path, :class => 'brand'
           %ul.nav
             %li
               = link_to 'Home', root_path
@@ -22,14 +22,11 @@
               = link_to 'Contacts', '#contacts'
           %div.pull-right
             %ul.nav
-              %li
-                = link_to 'Sign in', '/users/sign_in'
-              %li
-                = link_to 'Sign Up', '/users/sign_up'
+            = render 'shared/navigation'
     %div.container
       %div.content
         - flash.each do |name, msg|
-          %div.alert-message.warning
+          %div.alert-message.warning{'data-alert' => 'alert' }
             = link_to '×', '#', :class => 'close'
             %p
               %strong
@@ -40,10 +37,10 @@
             %small Just do get a super job at your location
         %div.row
           %div.span10
-            %h2 something following to be here
+            %h5 something following to be here
             = yield
           %div.span4
-            %h3 something less relevant
+            %h6 something less relevant
       %footer
         %p getajob.com 2011
       -#%header

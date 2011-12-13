@@ -3,8 +3,15 @@ Getajob::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :users
-  resources :users, :only => :show
+  match '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/failure' => 'authentications#failure'
+
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
+
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
 
 
   # The priority is based upon order of creation:

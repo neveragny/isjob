@@ -8,6 +8,9 @@
 # http://github.com/RailsApps/rails3-application-templates/issues
 #----------------------------------------------------------------------------
 
+#rubymine
+/.idea/*
+
 # bundler state
 /.bundle
 /vendor/bundle/

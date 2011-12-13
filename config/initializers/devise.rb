@@ -197,6 +197,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :vkontakte, '2451301', 'M2bRILJgXVcdRqVVCdss', :scope => "notify,friends,wall"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -206,4 +207,5 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  #config.omniauth :vkontakte, '2451301', 'M2bRILJgXVcdRqVVCdss', {:scope => "notify,friends,wall" }
 end

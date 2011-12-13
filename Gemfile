@@ -4,6 +4,12 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 gem 'sqlite3'
 
+gem "devise", ">= 1.5.0", :git => 'git://github.com/plataformatec/devise.git'
+gem 'omniauth', '>=0.2.0.beta'
+gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'cancan'
+
+
 # ASSETS
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -49,5 +55,4 @@ gem "guard-rails", ">= 0.0.3", :group => :development
 gem "guard-livereload", ">= 0.3.0", :group => :development
 gem "guard-rspec", ">= 0.4.3", :group => :development
 gem "guard-cucumber", ">= 0.6.1", :group => :development
-gem "devise", ">= 1.5.0"
 gem "rails-footnotes", ">= 3.7", :group => :development

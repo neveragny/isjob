@@ -2,8 +2,43 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me
+
+  def password_required?
+    provider.nil? ? super : (provider.empty?) && super
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if session["devise.vkontakte_data"] && session["devise.vkontakte_data"]["extra"]["user_hash"]
+        data = session['devise.vkontakte_data']
+        user.username = data['user_info']['name']
+        user.provider = data['provider']
+        user.uid = data['uid']
+      end
+    end
+  end
+
+  # @return [User]
+  def self.find_for_vkontakte_oauth(access_token, signed_in_resource=nil)
+    data = access_token
+    if user = User.find_by_uid(data['uid'])
+      user
+    else # register a new user with stup passwd. Nice, yeh?
+      User.create(:password => Devise.friendly_token[0,20], :provider => data[:provider])
+    end
+  end
+
+  # @return [User]
+  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+  data = access_token.extra.raw_info
+  if user = User.where(:email => data.email).first
+    user
+  else # Create a user with a stub password.
+    User.create!(:email => data.email, :password => Devise.friendly_token[0,20])
+  end
+end
 end
