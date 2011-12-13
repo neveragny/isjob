@@ -68,7 +68,7 @@
       $element.removeClass('in')
 
       function removeElement () {
-        $element.remove()
+        $element.fadeOut()
       }
 
       $.support.transition && $element.hasClass('fade') ?
