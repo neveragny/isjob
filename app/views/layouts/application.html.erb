@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Get a Job</title>
+  <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+  <%= javascript_include_tag 'application', 'jquery', 'jquery_ujs', 'bootstrap-alerts', 'bootstrap-dropdown', 'bootstrap-twipsy', 'bootstrap-popover', 'bootstrap-buttons.js', 'bootstrap-modal.js', 'bootstrap-scrollspy.js','bootstrap-tabs.js', 'home', 'users' %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body class="<%= params[:controller] %>">
+<div class="topbar">
+  <div class="fill">
+    <div class="container">
+      <%= link_to 'GetAJob', root_path, :class => 'brand' %>
+      <ul class="nav">
+        <li><%= link_to t('layout.home'), root_path %></li>
+        <li><%= link_to t('layout.about'), '#about' %></li>
+        <li><%= link_to t('layout.contacts'), '#contacts' %></li>
+      </ul>
+      <div class="pull-right">
+        <ul class="nav"><%= render 'shared/navigation' %></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% render 'shared/masthead' %>
+<div class="container">
+  <div class="contents">
+    <% flash.each do |name, msg| %>
+        <div class="alert-message warning" data-alert="alert">
+          <%= link_to '×', '#', :class => 'close' %>
+        </div>
+    <% end %>
+    <div class="page-header">
+      <h1>Заполучить работу
+        <small> Just do get a super job at your location</small>
+      </h1>
+    </div>
+    <div class="row">
+      <div class="span11">
+        <%= yield %>
+      </div>
+      <div class="span3">
+        <h6>что то будет сдесь</h6>
+      </div>
+    </div>
+  </div>
+  <footer><p>getajob.com 2011</p></footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<ul class="nav">
+	<% if user_signed_in? %>
+		<li><%= link_to current_user.email, edit_user_registration_path %></li>
+		<li><%= link_to t('shared.nav.logout'), destroy_user_session_path, :method=>'delete' %></li>
+	<% else %>
+		<li><%= link_to t('shared.nav.login'), new_user_session_path %></li>
+		<li class="dropdown" data-dropdown="dropdown">
+			<%= link_to t('shared.nav.sign_up'), '#', :class => 'dropdown-toggle' %>
+			<ul class="dropdown-menu">
+				<li><%= link_to t('shared.nav.for_candidate'), new_user_registration_path %></li>
+				<li><%= link_to t('shared.nav.for_company'), '/users/sign_up/company' %></li>
+			</ul>
+		</li>
+	<% end%>
+</ul>				
