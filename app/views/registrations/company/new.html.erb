@@ -1,0 +1,118 @@
+<h2><%= t('shared.nav.sign_up') + "для компании" %></h2>
+<% resource.build_company %>
+<%= form_for(resource, :url => registration_path(resource_name)) do |f| %>
+    <%#= resource.errors.inspect %>
+    <%#= resource.inspect %>
+    <fieldset>
+      <legend>Информация для входа в аккаунт</legend>
+      <div class="clearfix <%= resource.errors.messages[:email].present?? :error : '' %>">
+        <%= f.label :email %>
+        <div class="input">
+          <%= f.email_field :email, :class=>"xlarge #{ resource.errors.messages[:email].present?? :error : '' }" %>
+          <%= get_link_popup resource.errors, :email %>
+        </div>
+      </div>
+
+      <% if @user.password_required? %>
+          <div class="clearfix <%= resource.errors.messages[:password].present?? :error : '' %>">
+            <%= f.label t('devise.password') %>
+            <div class="input">
+              <%= f.password_field :password, :class => "xlarge #{ resource.errors.messages[:password].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :password %>
+            </div>
+          </div>  
+          <div class="clearfix <%= resource.errors.messages[:password_confirmation].present?? :error : '' %>">
+            <%= f.label t('devise.password_confirmation') %>
+            <div class="input">
+              <%= f.password_field :password_confirmation, :class=>"xlarge #{ resource.errors.messages[:password_confirmation].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :password_confirmation %>
+            </div>
+          </div>
+      <% end %>
+    </fieldset>
+
+    <%= f.fields_for :company do |company| %>
+        <fieldset>
+          <legend>Информации о компании</legend>
+          <div class="clearfix <%= resource.errors.messages[:"company.name"].present?? :error : '' %>">
+            <%= company.label t('devise.company.name') %>
+            <div class="input">
+              <%= company.text_field :name , :class=>"xlarge #{ resource.errors.messages[:"company.name"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.name" %>
+            </div>
+          </div>
+          <div class="clearfix <%= resource.errors.messages[:"company.sphere_id"].present?? :error : '' %>">
+            <%= company.label t('devise.company.sphere') %>
+            <div class="input">
+              <%= company.text_field :sphere_id , :class=>"xlarge #{ resource.errors.messages[:"company.sphere_id"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.sphere_id" %>
+            </div>
+          </div>
+          <div class="clearfix <%= resource.errors.messages[:"company.city"].present?? :error : '' %>">
+            <%= company.label t('devise.company.city') %>
+            <div class="input">
+              <%= company.text_field :city , :class=>"xlarge #{ resource.errors.messages[:"company.city"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.city" %>
+            </div>
+          </div>
+          <div class="clearfix <%= resource.errors.messages[:"company.info"].present?? :error : '' %>">
+            <%= company.label t('devise.company.info') %>
+            <div class="input">
+              <%= company.text_area :info, :rows => 4, :class=>"large #{ resource.errors.messages[:"company.info"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.info" %>
+            </div>
+          </div>
+          <div class="clearfix <%= resource.errors.messages[:"company.url"].present?? :error : '' %>">
+            <%= company.label t('devise.company.url') %>
+            <div class="input">
+              <%= company.text_field :url , :class=>"xlarge #{ resource.errors.messages[:"company.url"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.url" %>
+            </div>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>Контактное лицо</legend>
+
+          <div class="clearfix <%= resource.errors.messages[:"company.contact_person_name"].present?? :error : '' %>">
+            <%= company.label t('devise.company.contact_person_name') %>
+            <div class="input">
+              <%= company.text_field :contact_person_name , :class=>"xlarge #{ resource.errors.messages[:"company.contact_person_name"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.contact_person_name" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"company.contact_person_phone"].present?? :error : '' %>">
+            <%= company.label t('devise.company.contact_person_phone') %>
+            <div class="input">
+              <%= company.text_field :contact_person_phone , :class=>"xlarge #{ resource.errors.messages[:"company.contact_person_phone"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.contact_person_phone" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"company.contact_person_position"].present?? :error : '' %>">
+            <%= company.label t('devise.company.contact_person_position') %>
+            <div class="input">
+              <%= company.text_field :contact_person_position , :class=>"xlarge #{ resource.errors.messages[:"company.contact_person_position"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.contact_person_position" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"company.contact_person_role"].present?? :error : '' %>">
+            <%= company.label t('devise.company.contact_person_role') %>
+            <div class="input">
+              <%= company.text_field :contact_person_role , :class=>"xlarge #{ resource.errors.messages[:"company.contact_person_role"].present?? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"company.contact_person_role" %>
+            </div>
+          </div>
+        </fieldset>
+    <% end %>
+    <div class="actions">
+      <%= f.submit t(:"devise.register"), :class=> "btn primary" %>
+      <%#= f.cancel "Cancel", :class=> "btn" %>
+    </div>
+<% end %>
+
+<%= link_to t("shared.nav.login"), new_session_path(resource_name) %><br />
+<%= link_to t("shared.nav.forgot"), new_password_path(resource_name) %><br />

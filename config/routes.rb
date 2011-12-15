@@ -1,4 +1,6 @@
 Getajob::Application.routes.draw do
+
+
   #get \"users\/show\"
 
   root :to => "home#index"
@@ -7,7 +9,9 @@ Getajob::Application.routes.draw do
   match '/auth/failure' => 'authentications#failure'
 
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' } do
+    match '/users/sign_up/:company' => 'registrations#new'
+  end
 
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
