@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111215063012) do
+ActiveRecord::Schema.define(:version => 20111216213820) do
+
+  create_table "busynesses", :force => true do |t|
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -29,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20111215063012) do
     t.integer  "user_id"
   end
 
+  create_table "positions", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "level"
+    t.integer  "region_id"
+    t.integer  "salary"
+    t.integer  "busyness_id"
+    t.integer  "education_id"
+    t.string   "experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_details", :force => true do |t|
     t.integer  "sex",        :default => 0, :null => false
     t.string   "first_name",                :null => false
@@ -42,8 +61,8 @@ ActiveRecord::Schema.define(:version => 20111215063012) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -57,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20111215063012) do
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_company",                            :default => false, :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

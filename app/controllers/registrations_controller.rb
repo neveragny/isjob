@@ -28,7 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def render_for(params, resource)
-    is_company = params[:company].present? || params[:user][:company_attributes]
+    is_company = params[:company].present? || ( params[:user] && params[:user][:company_attributes].present? )
     is_company ? respond_with_navigational(resource) { render_with_scope :new, 'registrations/company' }
                : respond_with_navigational(resource) { render_with_scope :new }
   end

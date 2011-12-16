@@ -7,6 +7,13 @@ FactoryGirl.define do
     password 'please'
   end
 
+  factory :position do
+    title 'Good CV'
+    description 'some description'
+    level 1
+  end
+
+
 end
 
 

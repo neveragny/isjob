@@ -59,16 +59,20 @@
       -------------------------------------------------- */
       .jumbotron {
         min-width: 940px;
-        padding-top: 40px;
+        /*padding-top: 40px;*/
       }
       .jumbotron .inner {
-        background: transparent url(../img/grid-18px.png) top center;
-        padding: 45px 0;
+        background: transparent url(/assets/grid-18px.png) top center;
+        padding: 25px 0;
         -webkit-box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
            -moz-box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
       /*          box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
       */}
-      .jumbotron h1,
+      .jumbotron div.container h3{
+        color: #fff;
+        font-weight: lighter;
+      }
+      .jumbotron h1, 
       .jumbotron p {
         margin-bottom: 9px;
         color: #fff;
@@ -129,6 +133,15 @@
       .subhead p a {
         font-weight: normal;
       }
-
+      .jumbotron p.samle_search {
+        text-align: left;
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: lighter; 
+      }
+      .jumbotron a.sample_position {
+        border-bottom: 1px dotted #fff;
+        text-decoration:none
+      }
 
 
