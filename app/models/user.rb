@@ -3,9 +3,15 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
+  has_one :company, :dependent => :destroy
+  has_one :user_detail, :dependent => :destroy
+  accepts_nested_attributes_for :company, :allow_destroy => true
+  accepts_nested_attributes_for :user_detail, :allow_destroy => true
+  
+  
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me, :company_attributes, :user_detail_attributes
+
 
   def password_required?
     provider.nil? ? super : (provider.empty?) && super

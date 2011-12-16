@@ -1,25 +1,90 @@
-<h2>Sign up</h2>
-
+<h2><%= t('shared.nav.sign_up') %></h2>
+<%# resource.build_user_detail %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%# devise_error_messages! %>
 
-    <div><%= f.label :email %>
-      <br/>
-      <%= f.email_field :email %></div>
+    <fieldset>
+      <legend>Информация для входа в аккаунт</legend>
+      <div class="clearfix <%= resource.errors.messages[:email].present? ? :error : '' %>">
+        <%= f.label :email %>
+        <div class="input">
+          <%= f.email_field :email, :class=>"xlarge #{ resource.errors.messages[:email].present? ? :error : '' }" %>
+          <%= get_link_popup resource.errors, :email %>
+        </div>
+      </div>
 
+      <% if @user.password_required? %>
+          <div class="clearfix <%= resource.errors.messages[:password].present? ? :error : '' %>">
+            <%= f.label t('devise.password') %>
+            <div class="input">
+              <%= f.password_field :password, :class => "xlarge #{ resource.errors.messages[:password].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :password %>
+            </div>
+          </div>
+          <div class="clearfix <%= resource.errors.messages[:password_confirmation].present? ? :error : '' %>">
+            <%= f.label t('devise.password_confirmation') %>
+            <div class="input">
+              <%= f.password_field :password_confirmation, :class=>"xlarge #{ resource.errors.messages[:password_confirmation].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :password_confirmation %>
+            </div>
+          </div>
+      <% end %>
+    </fieldset>
+    <div class="clearfix <%= resource.errors.messages[:password_confirmation].present? ? :error : '' %>">
 
-    <% if @user.password_required? %>
-        <div><%= f.label :password %>
-          <br/>
-          <%= f.password_field :password %></div>
+    </div>
+    <%= f.fields_for :user_detail do |detail| %>
+        <fieldset>
+          <legend>Личные данные</legend>
 
-        <div><%= f.label :password_confirmation %>
-          <br/>
-          <%= f.password_field :password_confirmation %></div>
+          <div class="clearfix <%= resource.errors.messages[:"detail.first_name"].present? ? :error : '' %>">
+            <%= detail.label "first_name" %>
+            <div class="input">
+              <%= detail.text_field :first_name, :class=>"xlarge #{ resource.errors.messages[:"detail.first_name"].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"detail.first_name" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"detail.first_name"].present? ? :error : '' %>">
+            <%= detail.label "last_name" %>
+            <div class="input">
+              <%= detail.text_field :last_name, :class=>"xlarge #{ resource.errors.messages[:"detail.last_name"].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"detail.last_name" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"detail.birthday"].present? ? :error : '' %>">
+            <%= detail.label "birthday" %>
+            <div class="input">
+              <%= detail.text_field :birthday, :class=>"xlarge #{ resource.errors.messages[:"detail.birthday"].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"detail.birthday" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"detail.city"].present? ? :error : '' %>">
+            <%= detail.label "first_name" %>
+            <div class="input">
+              <%= detail.text_field :city, :class=>"xlarge #{ resource.errors.messages[:"detail.city"].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"detail.city" %>
+            </div>
+          </div>
+
+          <div class="clearfix <%= resource.errors.messages[:"detail.phone"].present? ? :error : '' %>">
+            <%= detail.label "phone" %>
+            <div class="input">
+              <%= detail.text_field :phone, :class=>"xlarge #{ resource.errors.messages[:"detail.phone"].present? ? :error : '' }" %>
+              <%= get_link_popup resource.errors, :"detail.phone" %>
+            </div>
+          </div>
+
+        </fieldset>
     <% end %>
 
-    <div><%= f.submit "Sign up" %></div>
+    <div class="actions">
+      <%= f.submit t(:"devise.register"), :class=> "btn primary" %>
+      <%#= f.cancel "Cancel", :class=> "btn" %>
+    </div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

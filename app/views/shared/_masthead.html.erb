@@ -1,0 +1,24 @@
+<header class="jumbotron masthead" id="overview">
+  <div class="inner">
+    <div class="container">
+      <h3>Найти вакансию уже сейчас:</h3>
+      <%= form_tag 'positions/search', :remote => true do -%>
+        <div class="search_area">
+          <%= text_field_tag 'position', nil, :placeholder=> "ПОИСК ВАКАНСИИ", :class=> :xlarge %>
+        </div>
+      <% end -%>
+      <p class="samle_search">
+        например, #<%= link_to 'программист', '#', :class => :sample_position %>
+      </p>
+<!--      <p class="lead">
+        Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites.<br>
+        It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.<br>
+      </p>
+
+      <p><strong>Nerd alert:</strong> Bootstrap is
+        <a href="#less" title="Read about using Bootstrap with Less">built with Less</a> and was designed to work out of
+        the gate with modern browsers in mind.</p> -->
+    </div>
+    <!-- /container -->
+  </div>
+</header>

@@ -6,7 +6,7 @@
     %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
     = stylesheet_link_tag :application
-    = javascript_include_tag :application
+    = javascript_include_tag :application, :nav
     = csrf_meta_tags
   %body{:class => params[:controller]}
     %div.topbar
@@ -15,40 +15,26 @@
           = link_to 'GetAJob', root_path, :class => 'brand'
           %ul.nav
             %li
-              = link_to 'Home', root_path
+              = link_to t('layout.home'), root_path
             %li
-              = link_to 'About', '#about'
+              = link_to t('layout.about'), '#about'
             %li
-              = link_to 'Contacts', '#contacts'
+              = link_to t('layout.contacts'), '#contacts'
           %div.pull-right
             %ul.nav
             = render 'shared/navigation'
+    = render 'shared/masthead'
     %div.container
-      %div.content
-        - flash.each do |name, msg|
-          %div.alert-message.warning{'data-alert' => 'alert' }
-            = link_to '×', '#', :class => 'close'
-            %p
-              %strong
-                Welcome, this  just a test notice.Cheers
+      %div.contents
         %div.page-header
           %h1
-            Getta Job
-            %small Just do get a super job at your location
+            = t('layout.promo1')
+            %small 
+              = t('layout.promo2') 
         %div.row
           %div.span10
-            %h5 something following to be here
             = yield
           %div.span4
             %h6 something less relevant
       %footer
         %p getajob.com 2011
-      -#%header
-      -#  %nav
-      -#    %ul.hmenu
-      -#      = render 'shared/navigation'
-      -#  - flash.each do |name, msg|
-      -#    = content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String)
-      -##main{:role => "main"}
-      -#  = yield
-      -#%footer
