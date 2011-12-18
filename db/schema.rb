@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216213820) do
+ActiveRecord::Schema.define(:version => 20111217154607) do
 
   create_table "busynesses", :force => true do |t|
     t.string   "role"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20111216213820) do
     t.string   "experience"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
+  end
+
+  create_table "spheres", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_details", :force => true do |t|
@@ -77,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20111216213820) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_company",                            :default => false, :null => false
+    t.integer  "company_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

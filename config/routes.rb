@@ -1,8 +1,5 @@
 Getajob::Application.routes.draw do
 
-
-  #get \"users\/show\"
-
   root :to => "home#index"
 
   match '/auth/:provider/callback' => 'authentications#create'
@@ -17,6 +14,9 @@ Getajob::Application.routes.draw do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
 
+  resources :companies do
+    resources :positions
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

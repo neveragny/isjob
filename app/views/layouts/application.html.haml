@@ -26,15 +26,14 @@
     = render 'shared/masthead'
     %div.container
       %div.contents
-        %div.page-header
-          %h1
-            = t('layout.promo1')
-            %small 
-              = t('layout.promo2') 
+        -#%div.page-header
+        -#  %h1
+        -#    = t('layout.promo1')
+        -#    %small
+        -#      = t('layout.promo2')
         %div.row
-          %div.span10
-            = yield
-          %div.span4
-            %h6 something less relevant
+          = yield
+          -#%div.span4
+          -#  %h6 something less relevant
       %footer
         %p getajob.com 2011

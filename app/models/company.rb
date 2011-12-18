@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  has_many :positions
   belongs_to :user
 
   attr_accessible :name, :city, :info, :contact_person_name, :contact_person_phone, :contact_person_position, :contact_person_role
