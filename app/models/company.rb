@@ -15,5 +15,8 @@ class Company < ActiveRecord::Base
             :presence => true, :uniqueness => true, :length => { :maximum => 100 }
   validates :contact_person_role,
             :presence => true, :uniqueness => true, :length => { :maximum => 100 }
-
+  #TODO return users currently mapped to instance of company
+  def managers
+    [] << [user_id, contact_person_name]
+  end
 end

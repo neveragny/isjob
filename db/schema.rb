@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217154607) do
+ActiveRecord::Schema.define(:version => 20120103132357) do
 
   create_table "busynesses", :force => true do |t|
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "busynesses_positions", :id => false, :force => true do |t|
+    t.integer "busyness_id"
+    t.integer "position_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -35,11 +40,21 @@ ActiveRecord::Schema.define(:version => 20111217154607) do
     t.integer  "user_id"
   end
 
+  create_table "cvs", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "salary"
+    t.boolean  "expirience"
+    t.text     "info"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "positions", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.string   "level"
-    t.integer  "region_id"
     t.integer  "salary"
     t.integer  "busyness_id"
     t.integer  "education_id"
@@ -47,6 +62,24 @@ ActiveRecord::Schema.define(:version => 20111217154607) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id"
+    t.boolean  "active"
+    t.integer  "user_id"
+  end
+
+  create_table "positions_regions", :id => false, :force => true do |t|
+    t.integer "position_id"
+    t.integer "region_id"
+  end
+
+  create_table "positions_spheres", :id => false, :force => true do |t|
+    t.integer "position_id"
+    t.integer "sphere_id"
+  end
+
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spheres", :force => true do |t|
@@ -78,6 +111,9 @@ ActiveRecord::Schema.define(:version => 20111217154607) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string   "uid"
     t.string   "provider"
     t.string   "username"
@@ -87,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20111217154607) do
     t.integer  "company_id"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

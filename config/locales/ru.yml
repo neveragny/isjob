@@ -17,6 +17,27 @@ ru:
       for_company: для работодателя
       forgot: забыли пароль?
       sign_in_with: "войти через %{provider}"
+      my_items: мои вакансии
+      responces: отклики
+      agents: поисковики
+      goods: услуги
+  positions:
+    new:
+      add_new_position: Добавить вакансию
+      title: Заголовок вакансии
+      regions: Регион работы
+      busyness: Вид занятости
+      salary: Зарплата
+      expirience: Опыт работы
+      description: Описание вакансии
+      contact: Контактная информация
+      manager: Менеджер
+      place: Размещение вакансии
+      state: Активность вакансии
+      status: Статус вакансии
+    status:
+      active: Активная
+      nonactive: Неактивная
   devise:
     password: Пароль
     password_confirmation: Пароль еще раз
@@ -65,7 +86,19 @@ ru:
               blank: должность не указана
             contact_person_role:
               blank: тип должности не указан
-
+        position:
+          attributes:
+            title:
+              blank: Пожалуйста, заполните поле «Заголовок вакансии».
+            regions:
+              blank: Пожалуйста, выберите регион работы.
+            busynesses:
+              blank: Пожалуйста, выберите вид занятости.
+            status:
+              blank: Пожалуйста, выберите «Активность вакансии»
+            description: 
+              blank: Не заполнено поле «Описание вакансии».
+  
       template:              
         body: There were problems with the following fields             
         header:

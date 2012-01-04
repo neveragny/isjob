@@ -9,6 +9,12 @@ gem 'omniauth', '>=0.2.0.beta'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'cancan'
 
+# FORMS
+
+gem 'formtastic'
+gem "simple_form"
+
+gem 'tlsmail'
 
 # ASSETS
 group :assets do

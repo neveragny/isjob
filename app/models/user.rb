@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable
   has_one :company, :dependent => :destroy
   has_one :user_detail, :dependent => :destroy
+  has_many :cvs, :dependent => :destroy
   accepts_nested_attributes_for :company, :allow_destroy => true
   accepts_nested_attributes_for :user_detail, :allow_destroy => true
   
@@ -40,11 +41,15 @@ class User < ActiveRecord::Base
 
   # @return [User]
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-  data = access_token.extra.raw_info
-  if user = User.where(:email => data.email).first
-    user
-  else # Create a user with a stub password.
-    User.create!(:email => data.email, :password => Devise.friendly_token[0,20])
+    data = access_token.extra.raw_info
+    if user = User.where(:email => data.email).first
+      user
+    else # Create a user with a stub password.
+      User.create!(:email => data.email, :password => Devise.friendly_token[0,20])
+    end
   end
-end
+
+  def is_company?
+    company ? true : false
+  end
 end

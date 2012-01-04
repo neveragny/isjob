@@ -1,15 +1,20 @@
 <ul class="nav">
-	<% if user_signed_in? %>
-		<li><%= link_to current_user.email, edit_user_registration_path %></li>
-		<li><%= link_to t('shared.nav.logout'), destroy_user_session_path, :method=>'delete' %></li>
-	<% else %>
-		<li><%= link_to t('shared.nav.login'), new_user_session_path %></li>
-		<li class="menu">
-			<%= link_to t('shared.nav.sign_up'), '#', :class => 'menu' %>
-			<ul class="menu-dropdown">
-				<li><%= link_to t('shared.nav.for_candidate'), new_user_registration_path %></li>
-				<li><%= link_to t('shared.nav.for_company'), '/users/sign_up/company' %></li>
-			</ul>
-		</li>
-	<% end%>
-</ul>				
+  <% if user_signed_in? && current_user.is_company %>
+      <li><%= link_to t("shared.nav.my_items"), company_positions_path(current_user) %></li>
+      <li><%= link_to t("shared.nav.responces"), "#" %></li>
+      <li><%= link_to t("shared.nav.agents"), "#" %></li>
+      <li><%= link_to t("shared.nav.goods"), "#" %></li>
+  <% elsif user_signed_in? %>
+      <li><%= link_to current_user.email, edit_user_registration_path %></li>
+      <li><%= link_to t('shared.nav.logout'), destroy_user_session_path, :method=>'delete' %></li>
+  <% else %>
+      <li><%= link_to t('shared.nav.login'), new_user_session_path %></li>
+      <li class="menu">
+        <%= link_to t('shared.nav.sign_up'), '#', :class => 'menu' %>
+        <ul class="menu-dropdown">
+          <li><%= link_to t('shared.nav.for_candidate'), new_user_registration_path %></li>
+          <li><%= link_to t('shared.nav.for_company'), '/users/sign_up/company' %></li>
+        </ul>
+      </li>
+  <% end %>
+</ul>

@@ -20,5 +20,20 @@
         the gate with modern browsers in mind.</p> -->
     </div>
     <!-- /container -->
+    <ul id="siteNav">
+      <% if current_user && current_user.is_company %>
+        <li>
+          <%= link_to t("shared.nav.my_items"), positions_path, :remote => true %>
+        </li>
+        <li><%= link_to t("shared.nav.responces"), "#" %></li>
+        <li><%= link_to t("shared.nav.agents"), "#" %></li>
+        <li><%= link_to t("shared.nav.goods"), "#" %></li>
+      <% else %>
+        <li><a href='#'>Dashboard</a></li>
+        <li><a href='#'>Messages</a></li>
+        <li><a href='#'>Agents</a></li>
+        <li><a href='#'>Do it!</a></li>
+      <% end %> 
+    </ul>
   </div>
 </header>

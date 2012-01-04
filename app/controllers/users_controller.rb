@@ -6,4 +6,13 @@ class UsersController < ApplicationController
 
   end
 
+  def update_user_details
+    @details = current_user.build_user_detail(params[:user_detail])
+    respond_to do |format|
+      if @details.save
+        format.js { render :json => { :status => :ok}}
+      end
+    end  
+  end
+
 end

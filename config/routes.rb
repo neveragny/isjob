@@ -1,5 +1,11 @@
 Getajob::Application.routes.draw do
 
+  get "companies/index"
+
+  get "employee/index"
+
+  get "employer/index"
+
   root :to => "home#index"
 
   match '/auth/:provider/callback' => 'authentications#create'
@@ -14,10 +20,15 @@ Getajob::Application.routes.draw do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
 
+  match 'companies/positions' => 'companies#positions', :as => :"positions"
   resources :companies do
     resources :positions
   end
 
+  resource :cv, :only => [:new, :create, :destroy]
+  match 'cv/:id' => 'cvs#show'
+
+  match 'users/update/user_details' => 'users#update_user_details', :as => :user_details
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

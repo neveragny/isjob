@@ -1,0 +1,30 @@
+<% if @user_detail %>
+<%= form_for @user_detail, :url => :user_details, :remote => true do |f| %>
+  <fieldset>
+    <legend>Личные данные</legend>
+    <div class="clearfix"><%= f.label :first_name %><%= f.text_field :first_name, :class=> :xlarge %></div>
+    <div class="clearfix"><%= f.label :last_name %><%= f.text_field :last_name, :class=> :xlarge %></div>
+    <div class="clearfix"><%= f.label :phone %><%= f.text_field :phone, :class => :xlarge %></div>
+    <div class="clearfix">
+      <%= f.label :birthday %>
+      <%= f.date_select("birthday", :order => [:year, :month, :day], 
+                                    :start_year => 1970, 
+                                    :prompt => { :day => 't day', :month => 'Select month', :year => 'Select year' }, :class => :mini) %>
+    </div>
+    <div class="clearfix"><%= f.label :city %><%= f.text_field :city %></div>
+    <div class="actions">
+      <%= f.submit 'Next', :class=> "btn primary" %>
+    </div>
+  </fieldset>
+<% end %>
+<% end %>
+
+<div class="<%= 'inactive' if @user_detail %>">
+  <%= simple_form_for @cv, :url => cv_path  do |f| %>
+    <%= f.input :title %>
+    <%= f.input :salary %>
+    <%= f.input :info %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+
