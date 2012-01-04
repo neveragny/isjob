@@ -4,7 +4,6 @@ class CreatePositions < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :level
-      t.integer :region_id
       t.integer :salary
       t.integer :busyness_id
       t.integer :education_id

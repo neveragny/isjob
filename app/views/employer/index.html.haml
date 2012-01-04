@@ -1,0 +1,24 @@
+%div.span3
+  hello from sidebar
+%div.span12
+  %h1
+    Мои вакансии
+  %div.positions
+    %table
+      %thead
+        %tr
+          %th.blue.header
+            Вакансия
+          %th.blue.header
+            Период размещения
+          %th.blue.header
+            Активность
+          %th.blue.header
+            Статистика
+      - @positions.each do |position|
+        %tr
+          %td
+            %h4= link_to position.title, company_position_path(current_user.company, position.id)
+          %td= nil
+          %td= position.status
+          %td= position.id

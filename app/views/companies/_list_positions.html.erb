@@ -1,0 +1,25 @@
+<h1>My positions</h1>
+<div class="positions">
+  <table class="condensed-table">
+    <thead>
+      <tr>
+        <th>Вакансия</th>
+        <th>Период размещения</th>
+        <th>Активность</th>
+        <th>Статистика</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @positions.each do |p| %>
+        <tr data-id="<%=p.id%>">
+          <td><%= link_to p.title, company_position_path(current_user.company,p) %></td>
+          <td><%= nil %></td>
+          <td><%= p.status %></td>
+          <td><%= nil %></td>
+          <td><%= link_to 'delete', company_position_path(current_user.company,p), :confirm=> 'Are you sure?', :method => :delete, :remote=> true, 'data-type'=>'json' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

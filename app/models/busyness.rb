@@ -1,3 +1,8 @@
 class Busyness < ActiveRecord::Base
-  belongs_to :position
+  has_and_belongs_to_many :positions
+
+
+  def to_s
+    role
+  end
 end

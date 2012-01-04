@@ -1,3 +1,80 @@
 // Place all the styles related to the positions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body.positions .input {
+    margin-left:0px;
+}
+
+body.positions li.input label {
+  float: none;
+  margin-right:5px;
+  font-size:13px;
+  font-weigh: light;
+}
+
+body.positions ul.inputs-list label:hover {
+  background-color: #DAEAFF;
+}
+body.positions ul.inputs-list.busynesses {
+    width:150px;
+}
+
+body.positions li {
+    display: block;
+}
+
+/*FORM STACKED*/
+body.positions form {
+  padding-left: 20px;
+}
+body.positions form fieldset {
+  padding-top: 9px;
+}
+body.positions form legend {
+  padding-left: 0;
+}
+body.positions form label {
+  display: block;
+  float: none;
+  width: auto;
+  font-weight: bold;
+  text-align: left;
+  line-height: 20px;
+  padding-top: 0;
+}
+body.positions form .clearfix {
+  margin-bottom: 9px;
+}
+body.positions form .clearfix div.input {
+  margin-left: 0;
+}
+body.positions form .inputs-list {
+  margin-bottom: 0;
+}
+body.positions form .inputs-list li {
+  padding-top: 0;
+}
+body.positions form .inputs-list li label {
+  font-weight: normal;
+  padding-top: 0;
+}
+body.positions form div.clearfix.error {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 0;
+  margin-left: -10px;
+}
+body.positions form .actions {
+  margin-left: -20px;
+  padding-left: 20px;
+}
+
+div.row.spheres {
+}
+
+/* LABELS*/
+.label a.helper {
+    color: #ffffff;
+    border-bottom: 1px dotted #ffffff;
+}

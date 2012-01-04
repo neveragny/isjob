@@ -1,0 +1,10 @@
+%div.span3
+  = current_user.company.name
+%div.span12
+  %h1
+    My kind of Dashboard
+  %div.positions
+    %span.actuall
+      %h4
+        = link_to "My placed positions", company_positions_path(current_user.company)
+      =link_to "add new position", new_company_position_path(current_user.company), :class => "btn success" 

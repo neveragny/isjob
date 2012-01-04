@@ -1,0 +1,3 @@
+$("body.companies .container .contents .row .span12").empty();
+$("body.companies .container .contents .row .span12").append("<%= escape_javascript(render :partial => 'list_positions' )%>");
+initDeleteLinks();

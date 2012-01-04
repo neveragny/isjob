@@ -13,14 +13,29 @@ Getajob::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  # A dummy setup for development - no deliveries, but logged
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address            => 'smtp.yandex.ru',
+    :port           => 587,
+    :tls            => true,
+    :domain         => 'comilffo.com',
+    :authentication     => :plain,
+    :user_name      => "support@comilffo.com",
+    :password       => "rpiffwhz",
+  }
 
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'comilffo.com' }
+  # A dummy setup for development - no deliveries, but logged
+  #  config.action_mailer.delivery_method = :smtp
+  #  config.action_mailer.perform_deliveries = true
+  #  config.action_mailer.raise_delivery_errors = true
+  #  config.action_mailer.default :charset => "utf-8"
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

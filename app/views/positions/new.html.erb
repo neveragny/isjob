@@ -1,52 +1,74 @@
 <div class="span16">
-  <h1><%= t(:"add_new_position") %></h1>
+  <h1><%= t(:"positions.new.add_new_position") %></h1>
 
 
-  <%= form_for @position, :url => company_positions_path do |f| %>
-      <div class="page-header"> общая информация</div>
+  <%= simple_form_for @position, :url => company_positions_path, :defaults => {:class => "form-stacked"} do |f| %>
+      <fieldset>
+        <legend>Общая
+          информация&nbsp;&nbsp;<span class="label notice"><%= link_to "помощь", '#', :class => "helper" %></span>
+        </legend>
+        <%= f.input :title, :label => I18n.t('positions.new.title'), :input_html => {:class=> "xlarge"}, :required => false %>
+
+        <div class="clearfix"></div>
+        <div class="row spheres">
+          <div class="span7">
+            <ul class="inputs-list">
+              <% @spheres.each do |sphere| %>
+                  <% if sphere.id < 15 %>
+                      <li>
+                        <label>
+                          <input type="checkbox" name="position[sphere_ids][]" value="<%= sphere.id %>">
+                          <span><%= sphere.title %></span>
+                        </label></li>
+                  <% end %>
+              <% end %>
+            </ul>
+          </div>
+          <div class="span7">
+            <ul class="inputs-list">
+              <% @spheres.each do |sphere| %>
+                  <% if sphere.id > 15 %>
+                      <li><label>
+                        <input type="checkbox" name="position[sphere_ids][]">
+                        <span><%= sphere.title %></span>
+                      </label></li>
+                  <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+      </fieldset>
+
+
+      <fieldset>
+        <legend>Требования к
+          соискателю&nbsp;&nbsp;<span class="label notice"><%= link_to "помощь", '#', :class => "helper" %></span>
+        </legend>
+        <div class="clearfix"></div>
+        <%= f.association :regions, :label => I18n.t('positions.new.regions'), :as => :select, :input_html => {:multiple => false, :size => 1, :class => :xlarge}, :required => false %> 
+      </fieldset>
+
+      <fieldset>
+        <%= f.input :salary, :label => I18n.t("positions.new.salary"), :input_html => {:class => :xlarge}, :required => false %>
+      </fieldset>
+
       <fieldset>
         <div class="clearfix">
-          <div class="row5">
-            <% @spheres.each do |sphere| %>
-                <div class="input">
-                  <div class="input-prepend">
-                    <label class="add-on active"><input type="checkbox" name="" id="" value=""></label>
-                    <input class="mini" style="width: 291px" id="prependedInput2" name="prependedInput2" size="160" type="text" value="<%= sphere.title %>" disabled="disabled">
-                  </div>
-                </div>
-            <% end %>
+          <div class="span7">
+            <ul class="inputs-list busynesses">
+              <% @busynesses.each do |bu| %>
+                  <% if bu.id < 15 %>
+                      <li>
+                        <label>
+                          <input type="checkbox" name="position[busyness_ids]" value="<%= bu.id %>">
+                          <span><%= bu.role %></span>
+                        </label></li>
+                  <% end %>
+              <% end %>
+            </ul>
           </div>
-
         </div>
-      </fieldset>
-      <fieldset>
-        <%= f.label :title %>
-        <%= f.text_field :title, :class => :xlarge %>
-      </fieldset>
-
-      <fieldset>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </fieldset>
-
-      <fieldset>
-        <%= f.label :level %>
-        <%= f.text_field :level %>
-      </fieldset>
-
-      <fieldset>
-        <%= f.label "region" %>
-        <%= f.text_field :region_id %>
-      </fieldset>
-
-      <fieldset>
-        <%= f.label :salary %>
-        <%= f.text_field :salary %>
-      </fieldset>
-
-      <fieldset>
-        <%= f.label :busyness_id %>
-        <%= f.text_field :busyness_id %>
       </fieldset>
 
       <fieldset>
@@ -54,9 +76,46 @@
         <%= f.text_field :education_id %>
       </fieldset>
 
+
       <fieldset>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
+        <legend>Описание вакансии*
+          <span class="help-block">Помните, чем подробнее Вы опишете Вашу вакансию, тем меньше времени потратите впоследствии при собеседованиях с неподходящими кандидатами.
+          </span>
+        </legend>
+
+        <div class="clearfix">
+          <%= f.input :description, :label => I18n.t('positions.new.description'),
+                      :as => :text, :input_html => {:class => 'xxlarge', :rows => 10, :cols => 40, :maxlength => 10}, :required => false %>
+          <span class="help-block">
+                <strong>!</strong> не более 3000 символов
+              </span>
+        </div>
       </fieldset>
+
+      <fieldset>
+        <legend>Контактная информация</legend>
+        <div class="clearfix">
+          <label class="select optional" for="position_user_id">Менеджер:</label>
+          <select id="position_user_id" class="select optional xlarge" size=1 name="position[user_id]">
+            <% @managers.each do |value, name| %>
+              <option value="<%=value %>"><%=name%></option>
+            <% end %>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Размещение вакансии</legend>
+        <div class="clearfix"><div class="span5">
+          <ul class="inputs-list active">
+            <li><label><input type="radio" value="true" name="position[active]"><span>Активная</span></li>
+            <li><label><input type="radio" value="false" name="position[active]"><span>Неактивная</span></li>
+          </ul>
+        </div></div>  
+      </fieldset>
+
+      <div class="actions">
+        <%= f.submit "Сохранить", :class=> "btn primary" %>
+      </div>
   <% end %>
 </div>
