@@ -12,7 +12,8 @@ gem 'cancan'
 # FORMS
 
 gem 'formtastic'
-gem "simple_form"
+gem 'simple_form'
+gem 'client_side_validations'
 
 gem 'tlsmail'
 
