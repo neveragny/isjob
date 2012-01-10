@@ -3,37 +3,30 @@
     <div class="container">
       <h3>Найти вакансию уже сейчас:</h3>
       <%= form_tag 'positions/search', :remote => true do -%>
-        <div class="search_area">
-          <%= text_field_tag 'position', nil, :placeholder=> "ПОИСК ВАКАНСИИ", :class=> :xlarge %>
-        </div>
+          <div class="search_area">
+            <%= text_field_tag 'position', nil, :placeholder=> "ПОИСК ВАКАНСИИ", :class=> :xlarge %>
+          </div>
       <% end -%>
       <p class="samle_search">
         например, #<%= link_to 'программист', '#', :class => :sample_position %>
       </p>
-<!--      <p class="lead">
-        Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites.<br>
-        It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.<br>
-      </p>
-
-      <p><strong>Nerd alert:</strong> Bootstrap is
-        <a href="#less" title="Read about using Bootstrap with Less">built with Less</a> and was designed to work out of
-        the gate with modern browsers in mind.</p> -->
     </div>
     <!-- /container -->
     <ul id="siteNav">
       <% if current_user && current_user.is_company %>
-        <li>
-          <%= link_to t("shared.nav.my_items"), positions_path, :remote => true %>
-        </li>
-        <li><%= link_to t("shared.nav.responces"), "#" %></li>
-        <li><%= link_to t("shared.nav.agents"), "#" %></li>
-        <li><%= link_to t("shared.nav.goods"), "#" %></li>
+          <li>
+            <%= link_to t("shared.nav.company.my_items"), positions_path, :remote => true %>
+          </li>
+          <li><%= link_to t("shared.nav.company.responces"), "#" %></li>
+          <li><%= link_to t("shared.nav.company.agents"), "#" %></li>
+          <li><%= link_to t("shared.nav.company.goods"), "#" %></li>
       <% else %>
-        <li><a href='#'>Dashboard</a></li>
-        <li><a href='#'>Messages</a></li>
-        <li><a href='#'>Agents</a></li>
-        <li><a href='#'>Do it!</a></li>
-      <% end %> 
+          <li><%= link_to t("shared.nav.empoyee.notepad"), "#" %></li>
+          <li><%= link_to t("shared.nav.empoyee.messages"), "#" %></li>
+          <li><%= link_to t("shared.nav.empoyee.search"), "#" %></li>
+          <li><%= link_to t("shared.nav.empoyee.settings"), "#" %></li>
+          <li><%= link_to t("shared.nav.empoyee.blog"), "#" %></li>
+      <% end %>
     </ul>
   </div>
 </header>

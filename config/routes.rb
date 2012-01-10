@@ -26,9 +26,11 @@ Getajob::Application.routes.draw do
   end
 
   resource :cv, :only => [:new, :create, :destroy]
-  match 'cv/:id' => 'cvs#show'
+  match 'cv/:id' => 'cvs#show', :as => :cv_route
 
   match 'users/update/user_details' => 'users#update_user_details', :as => :user_details
+  
+  match 'employee/cv' => 'employee#cv_list', :as => :employee_cv_list
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

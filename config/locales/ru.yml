@@ -17,10 +17,17 @@ ru:
       for_company: для работодателя
       forgot: забыли пароль?
       sign_in_with: "войти через %{provider}"
-      my_items: мои вакансии
-      responces: отклики
-      agents: поисковики
-      goods: услуги
+      company:
+        my_items: Мои вакансии
+        responces: Отклики
+        agents: Поисковики
+        goods: Услуги
+      empoyee:
+        notepad: Блокнот
+        messages: Сообщения
+        search: Поиск
+        settings: Настройки
+        blog: Блог
   positions:
     new:
       add_new_position: Добавить вакансию

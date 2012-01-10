@@ -1,0 +1,26 @@
+<h1>Вакансии</h1>
+<div class="cv_list">
+  <table class="condensed-table">
+    <thead>
+      <tr>
+        <th>Статистика</th>
+        <th>Резюме</th>
+        <th>Дата</th>
+        <th>Статус на сайте</th>
+        <th>Личные данные</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cvs.each do |cv| %>
+        <tr data-id="<%=cv.id%>">
+          <td><%= nil %></td>
+          <td><%= link_to cv.title, cv_route_path(cv.id) %></td>
+          <td><%= cv.updated_at %></td>
+          <td><%= cv.status ? "Доступно" : "Скрыто" %></td>
+          <td><%#= link_to 'delete', company_position_path(current_user.company,p), :confirm=> 'Are you sure?', :method => :delete, :remote=> true, 'data-type'=>'json' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<

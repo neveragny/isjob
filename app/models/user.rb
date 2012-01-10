@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many :cvs, :dependent => :destroy
   accepts_nested_attributes_for :company, :allow_destroy => true
   accepts_nested_attributes_for :user_detail, :allow_destroy => true
-  
-  
+
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me, :company_attributes, :user_detail_attributes
 
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
     if user = User.find_by_uid(data['uid'])
       user
     else # register a new user with stup passwd. Nice, yeh?
-      User.create(:password => Devise.friendly_token[0,20], :provider => data[:provider])
+      User.create(:password => Devise.friendly_token[0, 20], :provider => data[:provider])
     end
   end
 
@@ -45,11 +45,17 @@ class User < ActiveRecord::Base
     if user = User.where(:email => data.email).first
       user
     else # Create a user with a stub password.
-      User.create!(:email => data.email, :password => Devise.friendly_token[0,20])
+      User.create!(:email => data.email, :password => Devise.friendly_token[0, 20])
     end
   end
 
   def is_company?
     company ? true : false
   end
+
+  def have_user_detail?
+    return false unless user_detail
+    !user_detail.first_name.nil? && !user_detail.last_name.nil?
+  end
+
 end
