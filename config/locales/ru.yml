@@ -59,9 +59,12 @@ ru:
       contact_person_phone: Телефон
       contact_person_position: Должность
       contact_person_role: Тип должности
-
-
-
+  employee:
+    sidebar:
+      data: Мои данные
+      cv: Резюме
+      bookmarks: Закладки
+      calendar: Календарь
 
 # ActiveRecord::Errors
 

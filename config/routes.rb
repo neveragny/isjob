@@ -2,7 +2,7 @@ Getajob::Application.routes.draw do
 
   get "companies/index"
 
-  get "employee/index"
+  get "employee/notepad"
 
   get "employer/index"
 
@@ -31,6 +31,9 @@ Getajob::Application.routes.draw do
   match 'users/update/user_details' => 'users#update_user_details', :as => :user_details
   
   match 'employee/cv' => 'employee#cv_list', :as => :employee_cv_list
+  match 'employee/details' => 'employee#details', :as => :employee_details
+  match 'employee/bookmarks' => 'employee#bookmarks', :as => :employee_bookmarks
+  match 'employee/calendar' => 'employee#calendar', :as => :employee_calendar
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
