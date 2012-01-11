@@ -155,6 +155,16 @@ form span.error {
 
 /*FORMS*/
 
+form#new_user {
+  width: 60%;
+}
+
 form#new_user_detail .actions {
     width: 808px;
 }
+
+    /* VALIDATIONS  */
+  form label.message.error {
+    float: right;
+    color: red;
+  }

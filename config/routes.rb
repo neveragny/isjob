@@ -29,7 +29,8 @@ Getajob::Application.routes.draw do
   match 'cv/:id' => 'cvs#show', :as => :cv_route
 
   match 'users/update/user_details' => 'users#update_user_details', :as => :user_details
-  
+
+  match 'employee/notepad' => 'employee#notepad', :as => :employee_notepad  
   match 'employee/cv' => 'employee#cv_list', :as => :employee_cv_list
   match 'employee/details' => 'employee#details', :as => :employee_details
   match 'employee/bookmarks' => 'employee#bookmarks', :as => :employee_bookmarks

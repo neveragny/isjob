@@ -1,5 +1,4 @@
 <% if @user_detail %>
-    <%= @user_detail %>
     <%= form_for @user_detail, :url => :user_details, :validate => true, :remote => true do |f| %>
         <fieldset>
           <legend>Личные данные</legend>
