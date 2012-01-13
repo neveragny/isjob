@@ -155,7 +155,7 @@ form span.error {
 
 /*FORMS*/
 
-form#new_user {
+form#new_user, form#new_cv {
   width: 60%;
 }
 

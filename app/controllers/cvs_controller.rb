@@ -10,6 +10,8 @@ class CvsController < ApplicationController
     @cv = current_user.cvs.build(params[:cv])
     if @cv.save
       redirect_to cv_route_path @cv.id
+    else
+      render :new
     end
   end
 

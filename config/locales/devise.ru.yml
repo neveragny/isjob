@@ -56,12 +56,3 @@ ru:
         subject: "Инструкции по восстановлению пароля"
       unlock_instructions:
         subject: "Инструкции по разблокировке учётной записи"
-
-ru:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              invalid: "некорректный email"

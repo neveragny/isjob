@@ -66,6 +66,14 @@ ru:
       bookmarks: Закладки
       calendar: Календарь
 
+
+
+
+
+
+
+
+
 # ActiveRecord::Errors
 
   activerecord:     
@@ -76,6 +84,7 @@ ru:
             email:
               blank: email пустой
               taken: этот email уже занят
+              invalid: "некорректный email"
             password: 
               confirmation: пароли не совпадают
               too_short: пароль слишком короткий
@@ -108,7 +117,12 @@ ru:
               blank: Пожалуйста, выберите «Активность вакансии»
             description: 
               blank: Не заполнено поле «Описание вакансии».
-  
+        cv:
+          attributes:
+            title:
+              blank: Заголовок не указан
+            expirience:
+              blank: Опыт неуказан
       template:              
         body: There were problems with the following fields             
         header:
