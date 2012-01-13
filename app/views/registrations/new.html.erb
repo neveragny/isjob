@@ -1,6 +1,5 @@
 <h2><%= t('shared.nav.sign_up') %></h2>
-<%# resource.build_user_detail %>
-
+<div class="new_employee_wrapper">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
     <%# devise_error_messages! %>
 
@@ -10,7 +9,8 @@
         <%= f.label :email %>
         <div class="input">
           <%= f.email_field :email, :class=>"xlarge #{ resource.errors.messages[:email].present? ? :error : '' }" %>
-          <%= get_link_popup resource.errors, :email %>
+          <%#= get_link_popup resource.errors, :email %>
+          <span class="help-inline"><span>
         </div>
       </div>
 
@@ -19,14 +19,16 @@
             <%= f.label t('devise.password') %>
             <div class="input">
               <%= f.password_field :password, :class => "xlarge #{ resource.errors.messages[:password].present? ? :error : '' }" %>
-              <%= get_link_popup resource.errors, :password %>
+              <%#= get_link_popup resource.errors, :password %>
+              <span class="help-inline"><span>
             </div>
           </div>
           <div class="clearfix <%= resource.errors.messages[:password_confirmation].present? ? :error : '' %>">
             <%= f.label t('devise.password_confirmation') %>
             <div class="input">
               <%= f.password_field :password_confirmation, :class=>"xlarge #{ resource.errors.messages[:password_confirmation].present? ? :error : '' }" %>
-              <%= get_link_popup resource.errors, :password_confirmation %>
+              <%#= get_link_popup resource.errors, :password_confirmation %>
+              <span class="help-inline"><span>
             </div>
           </div>
       <% end %>
@@ -86,5 +88,5 @@
       <%#= f.cancel "Cancel", :class=> "btn" %>
     </div>
 <% end %>
-
+</div>
 <%= render :partial => "devise/shared/links" %>

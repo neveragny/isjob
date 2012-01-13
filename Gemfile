@@ -13,7 +13,7 @@ gem 'cancan'
 
 gem 'formtastic'
 gem 'simple_form'
-gem 'client_side_validations'
+#gem 'client_side_validations' 
 
 gem 'tlsmail'
 

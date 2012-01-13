@@ -13,7 +13,7 @@
     </div>
     <!-- /container -->
     <ul id="siteNav">
-      <% if current_user && current_user.is_company %>
+      <% if current_user && current_user.is_company? %>
           <li>
             <%= link_to t("shared.nav.company.my_items"), positions_path, :remote => true %>
           </li>

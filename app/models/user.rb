@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
   end
 
   def is_company?
-    company ? true : false
+    company 
   end
 
   def have_user_detail?

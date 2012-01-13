@@ -1,6 +1,7 @@
 <h2><%= t('shared.nav.sign_up') + " для компании" %></h2>
+<div> 
 <% resource.build_company %>
-<%= form_for(resource, :url => registration_path(resource_name), :validate => true) do |f| %>
+<%= form_for(resource, :url => registration_path(resource_name)) do |f| %>
     <%#= resource.errors.inspect %>
     <%#= resource.inspect %>
     <fieldset>

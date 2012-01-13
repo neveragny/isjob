@@ -154,11 +154,6 @@ form span.error {
 
 
 /*FORMS*/
-
-form#new_user, form#new_cv {
-  width: 60%;
-}
-
 form#new_user_detail .actions {
     width: 808px;
 }
