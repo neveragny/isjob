@@ -36,7 +36,7 @@ $(document).ready(function(){
        error.appendTo( element.parent().find(".help-inline") );
     },
     submitHandler: function(){
-      alert("submitted");
+        $("div.new_employee_wrapper form").submit();
     },
     success: function(label){
      // 

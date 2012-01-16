@@ -36,22 +36,59 @@
             <%= f.text_field :salary, :class => :xlarge %>
           </div>
         </div>
-
-        <div class="clearfix">
-          <%= f.label :expirience %>
-          <div class="input">
-            <%= f.text_field :expirience, :class => :xlarge %>
-          </div>
-        </div>
       </fieldset>
+
+
+      <fieldset id="experience">
+        <legend>Experience</legend>
+        <div class="clearfix">
+          <%= f.fields_for :experience do |exp| %>
+
+              <div class="clearfix">
+                <%= exp.label :company %>
+                <div class="input"><%= exp.text_field :company %></div>
+              </div>
+                            <div class="clearfix">
+                <%= exp.label :city %>
+                <div class="input"><%= exp.text_field :city %></div>
+              </div>
+
+                            <div class="clearfix">
+                <%= exp.label :position %>
+                <div class="input"><%= exp.text_field :position %></div>
+              </div>
+
+                            <div class="clearfix">
+                <%= exp.label :date_start %>
+                <div class="input"><%= exp.text_field :date_start %></div>
+              </div>
+
+                      <div class="clearfix">
+                <%= exp.label :date_end %>
+                <div class="input"><%= exp.text_field :date_end %></div>
+              </div>
+
+                      <div class="clearfix">
+                <%= exp.label :description %>
+                <div class="input"><%= exp.text_field :description %></div>
+              </div>
+
+              <%= link_to :add_experience, add_experience_path, :remote => true %>
+          <% end %>
+        </div>
+        <p><%= add_child_link "добавить опыт", :experience %></p>
+
+
+      </fieldset>
+
 
       <fieldset>
         <legend>Дополнительная информация о Вас</legend>
 
         <div class="clearfix">
-          <%= f.label :info %>
+          <%= f.label :description %>
           <div class="input">
-            <%= f.text_field :info, :class => :xlarge %>
+            <%= f.text_field :description, :class => :xlarge %>
           </div>
         </div>
       </fieldset>
@@ -61,8 +98,8 @@
         <div class="clearfix">
           <div class="span5">
             <ul class="inputs-list active">
-              <li><label><input type="radio" value="true" name="cv[status]"><span>Активная</span></label></li>
-              <li><label><input type="radio" value="false" name="cv[status]"><span>Неактивная</span></label></li>
+              <li><label><input type="radio" value="true" name="cv[active]"><span>Активная</span></label></li>
+              <li><label><input type="radio" value="false" name="cv[active]"><span>Неактивная</span></label></li>
             </ul>
           </div>
         </div>
@@ -72,4 +109,5 @@
         <%= f.submit "Сохранить", :class=> "btn primary" %>
       </div>
   <% end %>
+
 </div>

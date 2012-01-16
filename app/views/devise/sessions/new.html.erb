@@ -1,15 +1,7 @@
-<h2>Sign in</h2>
+<h2>Войти</h2>
 
 <%= devise_error_messages! %>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-
-    <!--<div class="clearfix">-->
-    <!--<label for="xlInput">X-Large input</label>-->
-
-    <!--<div class="input">-->
-    <!--<input class="xlarge" id="xlInput" name="xlInput" size="30" type="text">-->
-    <!--</div>-->
-    <!--</div>-->
 
     <div class="clearfix">
       <%= f.label :email %>

@@ -4,12 +4,9 @@
       <h3>Найти вакансию уже сейчас:</h3>
       <%= form_tag 'positions/search', :remote => true do -%>
           <div class="search_area">
-            <%= text_field_tag 'position', nil, :placeholder=> "ПОИСК ВАКАНСИИ", :class=> :xlarge %>
+            <%= text_field_tag 'position', nil, :placeholder=> "ВВЕДИТЕ ДОЛЖНОСТЬ", :class=> :xlarge %>
           </div>
       <% end -%>
-      <p class="samle_search">
-        например, #<%= link_to 'программист', '#', :class => :sample_position %>
-      </p>
     </div>
     <!-- /container -->
     <ul id="siteNav">

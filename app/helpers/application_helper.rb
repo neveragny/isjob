@@ -11,4 +11,9 @@ module ApplicationHelper
     html.html_safe
   end
 
+
+  def add_child_link(name, association)
+    link_to(name, "javascript:void(0)", :class => "add_child", :"data-association" => association)
+  end
+
 end

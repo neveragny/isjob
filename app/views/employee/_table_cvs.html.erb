@@ -19,7 +19,7 @@
           <td><%= nil %></td>
           <td><%= link_to cv.title, cv_route_path(cv.id) %></td>
           <td><%= cv.updated_at %></td>
-          <td><%= cv.status ? "Доступно" : "Скрыто" %></td>
+          <td><%= cv.active ? "Доступно" : "Скрыто" %></td>
           <td><%#= link_to 'delete', company_position_path(current_user.company,p), :confirm=> 'Are you sure?', :method => :delete, :remote=> true, 'data-type'=>'json' %></td>
         </tr>
       <% end %>

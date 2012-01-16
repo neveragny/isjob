@@ -12,4 +12,16 @@
 
 $(document).ready(function() {
   $(".topbar").dropdown();
+
+
+$('form a.add_child').bind('click',function() {
+    var association = $(this).attr('data-association');
+    var template = $('#' + association + '_fields_template').html();
+     var regexp = new RegExp('new_' + association, 'g');
+      var new_id = new Date().getTime();
+
+    $(this).parent().before(template.replace(regexp, new_id));
+    return false;
+  });
+
 });

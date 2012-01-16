@@ -11,8 +11,13 @@
 
 class Cv < ActiveRecord::Base
   belongs_to :user
+  has_many :experience, :dependent => :destroy, :class_name => 'Experience'
+
+  accepts_nested_attributes_for :experience, :allow_destroy => true
+
+#  attr_accessible :title, :salary, :experiences, :status, :info
 
   validates :title, :presence => true
-  validates :expirience, :presence => true
-  validates :status, :presence => true
+#  validates :expirience, :presence => true //TODO impossible to submit form even if expirience is specified.
+  validates :active, :presence => true
 end

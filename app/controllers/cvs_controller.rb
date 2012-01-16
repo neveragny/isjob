@@ -4,6 +4,7 @@ class CvsController < ApplicationController
   def new
     @user_detail =  current_user.build_user_detail unless current_user.have_user_detail?
     @cv = current_user.cvs.build
+    @cv.experience.build
   end
 
   def create
@@ -17,5 +18,11 @@ class CvsController < ApplicationController
 
   def show 
     @cv = current_user.cvs.find(params[:id])  
+  end
+
+  def add_experience
+    respond_to do |format|
+      format.js
+    end
   end
 end

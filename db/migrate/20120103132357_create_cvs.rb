@@ -1,12 +1,15 @@
 class CreateCvs < ActiveRecord::Migration
   def change
     create_table :cvs do |t|
-      t.string :title
-      t.integer :user_id
-      t.integer :salary
-      t.boolean :expirience
-      t.text :info
-      t.boolean :status
+      t.string   "title"
+      t.string   "description"
+      t.integer  "salary"
+      t.boolean  "relocation"
+      t.string   "job_type"
+      t.string   "experience"
+      t.boolean  "private"
+      t.boolean  "active"
+      t.integer  "user_id"
 
       t.timestamps
     end

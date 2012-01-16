@@ -12,7 +12,7 @@ ru:
     nav:
       logout: выйти
       login: войти
-      sign_up: регистрация
+      sign_up: Регистрация
       for_candidate: для соискателя
       for_company: для работодателя
       forgot: забыли пароль?

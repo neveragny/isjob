@@ -26,7 +26,9 @@ Getajob::Application.routes.draw do
   end
 
   resource :cv, :only => [:new, :create, :destroy]
+  match 'cv/add_experience' => 'cvs#add_experience', :as => :add_experience
   match 'cv/:id' => 'cvs#show', :as => :cv_route
+
 
   match 'users/update/user_details' => 'users#update_user_details', :as => :user_details
 

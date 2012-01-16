@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103132357) do
+ActiveRecord::Schema.define(:version => 20120113224444) do
 
   create_table "busynesses", :force => true do |t|
     t.string   "role"
@@ -42,11 +42,26 @@ ActiveRecord::Schema.define(:version => 20120103132357) do
 
   create_table "cvs", :force => true do |t|
     t.string   "title"
-    t.integer  "user_id"
+    t.string   "description"
     t.integer  "salary"
-    t.boolean  "expirience"
-    t.text     "info"
-    t.boolean  "status"
+    t.boolean  "relocation"
+    t.string   "job_type"
+    t.string   "experience"
+    t.boolean  "private"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experiences", :force => true do |t|
+    t.string   "company"
+    t.string   "city"
+    t.string   "position"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.text     "description"
+    t.integer  "cv_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
