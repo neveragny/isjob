@@ -1,0 +1,41 @@
+<div class="new_experience_part">
+  <div class="clearfix">
+    <%= f.label :company, t("cv.experience.company_name") %>
+    <div class="input">
+      <%= f.text_field :company %>
+      <span class="help-inline"></span>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :city, t("cv.experience.city") %>
+    <div class="input">
+      <%= f.text_field :city %><span class="help-inline"></span>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= f.label :position, t("cv.experience.position") %>
+    <div class="input">
+      <%= f.text_field :position %>
+      <span class="help-inline"></span>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= f.label :date_start, t("cv.experience.time_period") %>
+    <div class="input">
+      <%= f.text_field :date_start, :class => :datepicker %> по <%= f.text_field :date_end, :class => :datepicker %>
+      <span class="help-inline"></span>
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :description, t("cv.experience.description") %>
+    <div class="input">
+      <%= f.text_area :description, :size => "20x7", :class => :xxlarge %>
+      <span class="help-inline"></span>
+    </div>
+  </div>
+
+  <p> <%= remove_child_link "убрать", f %> </p>
+</div>

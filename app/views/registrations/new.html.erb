@@ -10,7 +10,7 @@
         <div class="input">
           <%= f.email_field :email, :class=>"xlarge #{ resource.errors.messages[:email].present? ? :error : '' }" %>
           <%#= get_link_popup resource.errors, :email %>
-          <span class="help-inline"><span>
+          <span class="help-inline"></span>
         </div>
       </div>
 
@@ -20,7 +20,7 @@
             <div class="input">
               <%= f.password_field :password, :class => "xlarge #{ resource.errors.messages[:password].present? ? :error : '' }" %>
               <%#= get_link_popup resource.errors, :password %>
-              <span class="help-inline"><span>
+              <span class="help-inline"></span>
             </div>
           </div>
           <div class="clearfix <%= resource.errors.messages[:password_confirmation].present? ? :error : '' %>">
@@ -28,7 +28,7 @@
             <div class="input">
               <%= f.password_field :password_confirmation, :class=>"xlarge #{ resource.errors.messages[:password_confirmation].present? ? :error : '' }" %>
               <%#= get_link_popup resource.errors, :password_confirmation %>
-              <span class="help-inline"><span>
+              <span class="help-inline"></span>
             </div>
           </div>
       <% end %>

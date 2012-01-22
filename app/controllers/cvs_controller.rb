@@ -5,6 +5,8 @@ class CvsController < ApplicationController
     @user_detail =  current_user.build_user_detail unless current_user.have_user_detail?
     @cv = current_user.cvs.build
     @cv.experience.build
+    @cv.education.build
+    @cv.training.build
   end
 
   def create

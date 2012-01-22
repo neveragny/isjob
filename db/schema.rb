@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113224444) do
+ActiveRecord::Schema.define(:version => 20120117183051) do
 
   create_table "busynesses", :force => true do |t|
     t.string   "role"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20120113224444) do
     t.integer  "user_id"
   end
 
+  create_table "cv_languages", :force => true do |t|
+    t.string   "name"
+    t.integer  "level"
+    t.integer  "cv_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cvs", :force => true do |t|
     t.string   "title"
     t.string   "description"
@@ -50,6 +58,19 @@ ActiveRecord::Schema.define(:version => 20120113224444) do
     t.boolean  "private"
     t.boolean  "active"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "educations", :force => true do |t|
+    t.integer  "cv_id"
+    t.integer  "level"
+    t.string   "name"
+    t.string   "faculty"
+    t.string   "city"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -99,6 +120,33 @@ ActiveRecord::Schema.define(:version => 20120113224444) do
 
   create_table "spheres", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "trainings", :force => true do |t|
+    t.string   "institution"
+    t.string   "course"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.integer  "cv_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

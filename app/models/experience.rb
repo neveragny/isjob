@@ -12,6 +12,6 @@
 class Experience < ActiveRecord::Base
   belongs_to :cv
 
-   attr_accessible :company, :city, :positions, :date_start, :date_end, :description
+  attr_accessible :company, :city, :positions, :date_start, :date_end, :description
 
 end

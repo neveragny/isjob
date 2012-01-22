@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :company, :allow_destroy => true
   accepts_nested_attributes_for :user_detail, :allow_destroy => true
 
-
+  delegate :first_name, :to => :user_detail, :allow_nil => true
+  delegate :last_name, :to => :user_detail, :allow_nil => true
+  delegate :city, :to => :user_detail, :allow_nil => true
+  delegate :full_name, :to => :user_detail, :allow_nil => true
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me, :company_attributes, :user_detail_attributes
 

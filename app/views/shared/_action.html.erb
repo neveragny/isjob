@@ -3,7 +3,7 @@
 		<li><%= link_to current_user.email, edit_user_registration_path %></li>
 		<li><%= link_to t('shared.nav.logout'), destroy_user_session_path, :method=>'delete' %></li>
 	<% else %>
-		<li><%= link_to t('shared.nav.login'), new_user_session_path %></li>
+		<li><%= link_to t('shared.nav.login'), new_user_session_path, :id => "sign-in" %></li>
 		<li class="menu">
 			<%= link_to t('shared.nav.sign_up'), '#', :class => 'menu' %>
 			<ul class="menu-dropdown">

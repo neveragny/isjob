@@ -19,19 +19,20 @@
     <% end %>
 <% end %>
 
-<div class="<%= 'inactive' if @user_detail %>">
-  <%= form_for @cv, :url => cv_path, :validate => true do |f| %>
+<div class="<%= 'inactive' if @user_detail %> new_cv_wrapper">
+  <%= form_for @cv, :url => cv_path, :validate => true, :html => {:class => "form-stacked"} do |f| %>
       <fieldset>
         <legend>Общая информация</legend>
         <div class="clearfix">
           <%= f.label :title, 'Заголовок резюме' %>
           <div class="input">
             <%= f.text_field :title, :class => :xlarge %>
+            <span class="help-inline"></span>
           </div>
         </div>
 
         <div class="clearfix">
-          <%= f.label :salary %>
+          <%= f.label t(:salary) %>
           <div class="input">
             <%= f.text_field :salary, :class => :xlarge %>
           </div>
@@ -40,47 +41,42 @@
 
 
       <fieldset id="experience">
-        <legend>Experience</legend>
+        <legend><%= t(:experience) %></legend>
         <div class="clearfix">
-          <%= f.fields_for :experience do |exp| %>
-
-              <div class="clearfix">
-                <%= exp.label :company %>
-                <div class="input"><%= exp.text_field :company %></div>
-              </div>
-                            <div class="clearfix">
-                <%= exp.label :city %>
-                <div class="input"><%= exp.text_field :city %></div>
-              </div>
-
-                            <div class="clearfix">
-                <%= exp.label :position %>
-                <div class="input"><%= exp.text_field :position %></div>
-              </div>
-
-                            <div class="clearfix">
-                <%= exp.label :date_start %>
-                <div class="input"><%= exp.text_field :date_start %></div>
-              </div>
-
-                      <div class="clearfix">
-                <%= exp.label :date_end %>
-                <div class="input"><%= exp.text_field :date_end %></div>
-              </div>
-
-                      <div class="clearfix">
-                <%= exp.label :description %>
-                <div class="input"><%= exp.text_field :description %></div>
-              </div>
-
-              <%= link_to :add_experience, add_experience_path, :remote => true %>
+          <%= f.fields_for :experience do |experience| %>
+              <%= render :partial => "experience", :locals => {:f => experience} %>
           <% end %>
         </div>
         <p><%= add_child_link "добавить опыт", :experience %></p>
 
 
+        <%= new_child_fields_template f, :experience %>
+
+
       </fieldset>
 
+      <fieldset>
+        <legend><%= t(:education) %></legend>
+        <div class="clearfix">
+          <%= f.fields_for :education do |education| %>
+            <%= render :partial => 'education', :locals => {:f => education} %>
+          <% end %>
+        </div>
+
+        <p><%= add_child_link "добавить место учебы", :education %>
+        <%= new_child_fields_template f, :education %>
+      </fieldset>
+
+      <fieldset>
+        <legend><%= t(:training) %></legend>
+        <div class="clearfix">
+          <%= f.fields_for :training do |training| %>
+            <%= render :partial => 'training', :locals => {:f => training} %>
+          <% end %>          
+        </div>
+        <p><%= add_child_link "добавить тренинг", :training %>
+        <%= new_child_fields_template f, :training %>
+      </fieldset>
 
       <fieldset>
         <legend>Дополнительная информация о Вас</legend>
@@ -90,6 +86,14 @@
           <div class="input">
             <%= f.text_field :description, :class => :xlarge %>
           </div>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Тэги</legend>
+        <div class="clearfix">
+          <%= f.label :skill_list %>
+          <div class="input"><%= f.text_field :skill_list, :class => :xlarge %></div>
         </div>
       </fieldset>
 

@@ -1,0 +1,33 @@
+<div class="new_education_part">
+  <div class="clearfix">
+    <%= f.label :level, t("cv.education.level") %>
+    <div class="input"><%= f.text_field :level %></div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :name, t("cv.education.name") %>
+    <div class="input"><%= f.text_field :name %></div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :faculty, t("cv.education.faculty") %>
+    <div class="input"><%= f.text_field :faculty %></div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :city, t("cv.education.city") %>
+    <div class="input"><%= f.text_field :city %></div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :date_start, t("cv.education.time_period") %>
+    <div class="input"><%= f.text_field :date_start, :class => :datepicker %> по <%= f.text_field :date_end, :class => :datepicker %></div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :description, t("cv.experience.description") %>
+    <div class="input"><%= f.text_area :description, :size => "20x7", :class => :xxlarge %></div>
+  </div>
+
+  <p> <%= remove_child_link "убрать", f %> </p>
+</div>
+

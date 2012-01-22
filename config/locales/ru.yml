@@ -2,6 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  experience: Опыт работы
+  education: Образование
+  training: Тренинги
+  salary: Заработная плата
+
   layout:
     home: Домой
     about: О нас
@@ -15,7 +20,7 @@ ru:
       sign_up: Регистрация
       for_candidate: для соискателя
       for_company: для работодателя
-      forgot: забыли пароль?
+      forgot: я зыбыл пароль
       sign_in_with: "войти через %{provider}"
       company:
         my_items: Мои вакансии
@@ -65,12 +70,20 @@ ru:
       cv: Резюме
       bookmarks: Закладки
       calendar: Календарь
-
-
-
-
-
-
+  cv:
+    salary: Зарплата
+    experience:
+      company_name: Компания
+      city: Город
+      position: Должность
+      time_period: Период работы
+      description: Ваши обязанности и достижения на занимаемой должности
+    education:
+      level: Уровень
+      name: Название заведения
+      faculty: Факультет
+      city: Город
+      time_period: Период обучения
 
 
 

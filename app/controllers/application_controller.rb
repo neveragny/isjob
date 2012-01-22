@@ -11,11 +11,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def layout_by_resource
-    if devise_controller? && resource_name == :admin
-      "layout_name_for_devise_admin"
-    else
-      "application"
-    end
+    (request.xhr?) ? nil : ((devise_controller? && resource_name == :admin ) ? 'layout_name_for_devise_admin' : 'application')
   end
 
   def set_locale

@@ -1,0 +1,9 @@
+<div class="social-signin">
+<%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), :class => "vk" do %>
+        <div></div>
+        В Контакте
+    <% end -%>
+<% end -%>
+
+</div>

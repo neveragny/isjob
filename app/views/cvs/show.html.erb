@@ -1,5 +1,39 @@
-<h3>This is Cvs#show for <%= @cv.id %> </h3>
+<div class="">
+  <h3><%= @cv.user.full_name %></h3>
+  <h4><%= @cv.title %></h4>
 
-<h5><%= @cv.title %></h5>
+  <div class="contacts">
+    <h4>Личные данные</h4>
+    <p><%=@cv.user.user_detail.phone %></p>
+  </div>
 
-<h3><%= @cv.experience.count %></h3>
+  <div class="work_experiences">
+    <h4>Опыт работы</h4>
+    <% @cv.experience.each do |item| %>
+      <div id="exp_<%=item.id%>" class="experience_item">
+        <h5><%= item.position %></h5>
+        <span><%= item.date_start %> - <%= item.date_end %></span>
+        <div><b><%= item.company %></b></div>
+        <div><%= item.description %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="educations">
+    <h4>Образование</h4>
+    <% @cv.education.each do |edu| %>
+      <div id="edu_<%= edu.id %>" class="education_item">
+        <h5><%= edu.name %> - <%= edu.city %></h5>
+        <div><%= edu.faculty %></div>
+        <div><%= edu.description %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="tags">
+    <h6>тэги этого резюме</h6>
+    <%- @cv.skill_list.each do |skill| %>
+      <span class="label"><%= skill %></span>
+    <%- end %>
+  </div>
+</div>

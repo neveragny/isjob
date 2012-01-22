@@ -7,21 +7,29 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.validate
+//= require facebox
 //= require bootstrap-twipsy
 //= require_tree .
 
 $(document).ready(function() {
-  $(".topbar").dropdown();
+    $(".topbar").dropdown();
+    
+    $('#sign-in').facebox({
+      loadingImage: '/assets/loading.gif',
+      closeImage: '/assets/closelabel.png'
+    });
 
+    // from new cv form, needs to be moved to respect js file
+    $('form a.add_child').bind('click', function() {
+        var association = $(this).attr('data-association');
+        var template = $('#' + association + '_fields_template').html();
+        var regexp = new RegExp('new_' + association, 'g');
+        var new_id = new Date().getTime();
 
-$('form a.add_child').bind('click',function() {
-    var association = $(this).attr('data-association');
-    var template = $('#' + association + '_fields_template').html();
-     var regexp = new RegExp('new_' + association, 'g');
-      var new_id = new Date().getTime();
+        $(this).parent().before(template.replace(regexp, new_id));
+        return false;
+    });
 
-    $(this).parent().before(template.replace(regexp, new_id));
-    return false;
-  });
+    $('form a.remove_child').live('click', function() { $(this).parent().parent().hide(); });
 
 });

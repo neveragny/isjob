@@ -10,19 +10,21 @@
     </div>
     <!-- /container -->
     <ul id="siteNav">
-      <% if current_user && current_user.is_company? %>
+      <% if current_user %>
+        <% if current_user.is_company? %>
           <li>
             <%= link_to t("shared.nav.company.my_items"), positions_path, :remote => true %>
           </li>
           <li><%= link_to t("shared.nav.company.responces"), "#" %></li>
           <li><%= link_to t("shared.nav.company.agents"), "#" %></li>
           <li><%= link_to t("shared.nav.company.goods"), "#" %></li>
-      <% else %>
+        <% else %>
           <li><%= link_to t("shared.nav.empoyee.notepad"), employee_notepad_path %></li>
           <li><%= link_to t("shared.nav.empoyee.messages"), "#" %></li>
           <li><%= link_to t("shared.nav.empoyee.search"), "#" %></li>
           <li><%= link_to t("shared.nav.empoyee.settings"), "#" %></li>
           <li><%= link_to t("shared.nav.empoyee.blog"), "#" %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

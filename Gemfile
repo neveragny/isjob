@@ -9,6 +9,8 @@ gem 'omniauth', '>=0.2.0.beta'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'cancan'
 
+gem 'acts-as-taggable-on', '~> 2.2.2'
+
 # FORMS
 
 gem 'formtastic'
@@ -16,6 +18,7 @@ gem 'simple_form'
 #gem 'client_side_validations' 
 
 gem 'tlsmail'
+
 
 # ASSETS
 group :assets do
