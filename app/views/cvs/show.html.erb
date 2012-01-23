@@ -1,39 +1,55 @@
-<div class="">
-  <h3><%= @cv.user.full_name %></h3>
-  <h4><%= @cv.title %></h4>
+<div class="cv_wrapper">
+  <div class="sf"><span class="">резюме от <%= @cv.updated_at %></span></div>
+  <h1 class="name"><%= @cv.user.full_name %></h1>
+
+  <h3><%= @cv.title %>
+    <small><%= @cv.job_type %></small></h3>
 
   <div class="contacts">
-    <h4>Личные данные</h4>
-    <p><%=@cv.user.user_detail.phone %></p>
+    <h3 class="underline">Личные данные</h3>
+    <table>
+      <tr>
+        <td>тел</td>
+        <td><%= @cv.user.user_detail.phone %></td>
+      </tr>
+      <tr>
+        <td>мыло</td>
+        <td><%= @cv.user.email %></td>
+      </tr>
+      <tr>
+        <td>место проживания</td>
+        <td><%= @cv.user.user_detail.city %></td>
+      </tr>
+    </table>
   </div>
 
   <div class="work_experiences">
-    <h4>Опыт работы</h4>
+    <h3 class="underline">Опыт работы</h3>
     <% @cv.experience.each do |item| %>
-      <div id="exp_<%=item.id%>" class="experience_item">
-        <h5><%= item.position %></h5>
-        <span><%= item.date_start %> - <%= item.date_end %></span>
-        <div><b><%= item.company %></b></div>
-        <div><%= item.description %></div>
-      </div>
+        <div id="exp_<%= item.id %>" class="experience_item">
+          <h4><%= item.company %> &nbsp;&nbsp;&nbsp;<span>c <%= item.date_start %> по <%= (item.date_end.nil?? "наст. время " : item.date_end) %></span></h4>
+          <h5><%= item.position %></h5>
+          <div><%= item.description %></div>
+        </div>
     <% end %>
   </div>
 
   <div class="educations">
-    <h4>Образование</h4>
+    <h3 class="underline">Образование</h3>
     <% @cv.education.each do |edu| %>
-      <div id="edu_<%= edu.id %>" class="education_item">
-        <h5><%= edu.name %> - <%= edu.city %></h5>
-        <div><%= edu.faculty %></div>
-        <div><%= edu.description %></div>
-      </div>
+        <div id="edu_<%= edu.id %>" class="education_item">
+          <h5><%= edu.name %> - <%= edu.city %></h5>
+
+          <div><%= edu.faculty %></div>
+          <div><%= edu.description %></div>
+        </div>
     <% end %>
   </div>
 
   <div class="tags">
     <h6>тэги этого резюме</h6>
     <%- @cv.skill_list.each do |skill| %>
-      <span class="label"><%= skill %></span>
+        <span class="label"><%= skill %></span>
     <%- end %>
   </div>
 </div>
