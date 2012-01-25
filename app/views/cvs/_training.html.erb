@@ -1,21 +1,21 @@
 <div class="new_training_part">
   <div class="clearfix">
     <%= f.label :institution, t("cv.training.institution") %>
-    <div class="input"><%= f.text_field :institution %></div>
+    <div class="input"><%= f.text_field :institution %><span class="help-inline"></span></div>
   </div>
   <div class="clearfix">
     <%= f.label :course, t("cv.training.course") %>
-    <div class="input"><%= f.text_field :course %></div>
+    <div class="input"><%= f.text_field :course %><span class="help-inline"></span></div>
   </div>
 
   <div class="clearfix">
     <%= f.label :date_start, t("cv.training.date_start") %>
-    <div class="input"><%= f.text_field :date_start %></div>
+    <div class="input"><%= f.text_field :date_start %><span class="help-inline"></span></div>
   </div>
 
   <div class="clearfix">
     <%= f.label :date_end, t("cv.training.date_end") %>
-    <div class="input"><%= f.text_field :date_end %></div>
+    <div class="input"><%= f.text_field :date_end %><span class="help-inline"></span></div>
   </div>
 
   <p> <%= remove_child_link "remove training", f %> </p>

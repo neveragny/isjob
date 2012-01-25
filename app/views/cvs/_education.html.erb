@@ -1,31 +1,35 @@
 <div class="new_education_part">
   <div class="clearfix">
     <%= f.label :level, t("cv.education.level") %>
-    <div class="input"><%= f.text_field :level %></div>
+    <div class="input"><%= f.text_field :level %><span class="help-inline"></span></div>
   </div>
   <div class="clearfix">
     <%= f.label :name, t("cv.education.name") %>
-    <div class="input"><%= f.text_field :name %></div>
+    <div class="input"><%= f.text_field :name %><span class="help-inline"></span></div>
   </div>
 
   <div class="clearfix">
     <%= f.label :faculty, t("cv.education.faculty") %>
-    <div class="input"><%= f.text_field :faculty %></div>
+    <div class="input"><%= f.text_field :faculty %><span class="help-inline"></span></div>
   </div>
 
   <div class="clearfix">
     <%= f.label :city, t("cv.education.city") %>
-    <div class="input"><%= f.text_field :city %></div>
+    <div class="input"><%= f.text_field :city %><span class="help-inline"></span></div>
   </div>
 
   <div class="clearfix">
     <%= f.label :date_start, t("cv.education.time_period") %>
-    <div class="input"><%= f.text_field :date_start, :class => :datepicker %> по <%= f.text_field :date_end, :class => :datepicker %></div>
+    <div class="input"><%= f.text_field :date_start, :class => :datepicker %> по <%= f.text_field :date_end, :class => :datepicker %>
+      <span class="help-inline"></span>
+    </div>
   </div>
 
   <div class="clearfix">
     <%= f.label :description, t("cv.experience.description") %>
-    <div class="input"><%= f.text_area :description, :size => "20x7", :class => :xxlarge %></div>
+    <div class="input"><%= f.text_area :description, :size => "20x7", :class => :xxlarge %>
+      <span class="help-inline"></span>
+    </div>
   </div>
 
   <p> <%= remove_child_link "убрать", f %> </p>

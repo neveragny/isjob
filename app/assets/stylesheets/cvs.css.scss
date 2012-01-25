@@ -5,7 +5,7 @@ div.inactive {
   display:none;
 }
 
-div.cv_wrapper {
+div.cv_wrapper, div.new_cv_wrapper {
     margin: 10px 0 0 25px;
     padding: 15px 0 0 15px;
     background-color: #f1f0f0;
@@ -47,4 +47,11 @@ div.cv_wrapper div.contacts table td{
 
 div.work_experiences, div.educations {
     margin-bottom: 18px;
+}
+
+/* NEW CV*/
+
+form#new_cv div.input input {
+    height: 20px;
+    font-size: 15px;
 }

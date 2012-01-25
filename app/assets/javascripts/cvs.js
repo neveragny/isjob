@@ -1,5 +1,19 @@
 $(document).ready(function() {
+
     init_user_details_form("#new_user_detail");
+    
+    // from new cv form, needs to be moved to respect js file
+    $('form a.add_child').bind('click', function() {
+        var association = $(this).attr('data-association');
+        var template = $('#' + association + '_fields_template').html();
+        var regexp = new RegExp('new_' + association, 'g');
+        var new_id = new Date().getTime();
+
+        $(this).parent().before(template.replace(regexp, new_id));
+        return false;
+    });
+
+    $('form a.remove_child').live('click', function() { $(this).parent().parent().hide(); });
 
     $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
     $("form .datepicker").datepicker(); //$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
@@ -29,43 +43,97 @@ function init_user_details_form(form) {
         }
     });
 
-
-//
-//
-//
-
-
     var validator_new_cv = $("div.new_cv_wrapper form").validate({
-        rules: {
-            "cv[title]": {
+        rules : {
+            "cv[title]" : {
                 required: true,
                 minlength: 5
             },
-            "cv[experience_attributes][0][company]": {
-                required: true,
-                minlength: 5
+    
+            "cv[experience_attributes][0][company]" : {
+                required: true
             },
-            "cv[experience_attributes][0][city]": {
-                required: true,
-                minlength: 5
+            "cv[experience_attributes][0][city]" : {
+                required: true
+            },
+            "cv[experience_attributes][0][position]" : {
+                required: true
+            },
+            "cv[experience_attributes][0][date_start]" : {
+                required: true
+            },
+            "cv[experience_attributes][0][date_end]" : {
+                required: true
+            },
+            "cv[education_attributes][0][level]" : {
+                required: true
+            },
+            "cv[education_attributes][0][name]" : {
+                required: true
+            },
+            "cv[education_attributes][0][faculty]" : {
+                required: true
+            },
+            "cv[education_attributes][0][city]" : {
+                required: true
+            },
+            "cv[education_attributes][0][date_start]" : {
+                required: true
+            },
+            "cv[education_attributes][0][date_end]" : {
+                required: true
+            },
+            "cv[active]" : {
+                required: true
             }
         },
         messages: {
-            "cv[title]": {
+            "cv[title]" : {
                 required: "Введите заголовок резюме",
                 minlength: "Введите заголовок резюме"
             },
-            "cv[experience_attributes][0][company]": {
-                required: "asdasd"
+    
+            "cv[experience_attributes][0][company]" : {
+                required: "Введите название компании"
             },
-            "cv[experience_attributes][0][city]": {
+            "cv[experience_attributes][0][city]" : {
                 required: "Пожалуйста введите корректный город",
                 minlength: "Пожалуйста введите корректный город"
-                //remote //TODO
-            }
+            },
+            "cv[experience_attributes][0][position]" : {
+                required: "Укажите должность"
+            },
+            "cv[experience_attributes][0][date_start]" : {
+                required: "Укажите дату"
+            },
+            "cv[experience_attributes][0][date_end]" : {
+                required: "Укажите дату"
+            },
+            "cv[education_attributes][0][level]" : {
+                required: "Укажите уровень образования"
+            },
+            "cv[education_attributes][0][name]" : {
+                required: "Укажите название учебного заведения"
+            },
+            "cv[education_attributes][0][faculty]" : {
+                required: "Укажите факультет/специальность"
+            },
+            "cv[education_attributes][0][city]" : {
+                required: "Укажите город"
+            },
+            "cv[education_attributes][0][date_start]" : {
+                required: "Укажите дату"
+            },
+            "cv[education_attributes][0][date_end]" : {
+                required: "Укажите дату"
+            },
+            "cv[active]" : {
+                required: "Укажите статус резюме"
+            }            
         },
         errorPlacement: function(error, element) {
             error.appendTo(element.parent().find(".help-inline"));
+            element.parent().parent().addClass("error");
         },
         submitHandler: function() {
             $("div.new_employee_wrapper form").submit();
