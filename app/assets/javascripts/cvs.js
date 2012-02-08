@@ -133,13 +133,19 @@ function init_user_details_form(form) {
         },
         errorPlacement: function(error, element) {
             error.appendTo(element.parent().find(".help-inline"));
-            element.parent().parent().addClass("error");
+//            element.parent().parent().addClass("error");
         },
         submitHandler: function() {
             $("div.new_employee_wrapper form").submit();
         },
         success: function(label) {
-            //
+//               
+        },
+        highlight: function(element, errorClass){
+            $(element).parent().parent().addClass("error");
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parent().parent().removeClass("error");
         }
     });
 
