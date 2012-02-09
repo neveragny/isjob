@@ -1,12 +1,13 @@
 <header class="jumbotron masthead" id="overview">
   <div class="inner">
     <div class="container">
-      <h3>Найти вакансию уже сейчас:</h3>
-      <%= form_tag 'positions/search', :remote => true do -%>
+      <div class="span9 search">
+      <%= form_tag 'positions/search', :class => "well form-search", :remote => true do -%>
           <div class="search_area">
-            <%= text_field_tag 'position', nil, :placeholder=> "ВВЕДИТЕ ДОЛЖНОСТЬ", :class=> :xlarge %>
+            <%= text_field_tag 'position', nil, :placeholder=> "ВВЕДИТЕ ДОЛЖНОСТЬ", :class=> :"search-query" %>
           </div>
       <% end -%>
+      </div>
     </div>
     <!-- /container -->
     <ul id="siteNav">

@@ -1,0 +1,33 @@
+<div class="hero-unit">
+  <h2>Я замечательный, и я хочу что-то лучше...</h2>
+  <br>
+  <%= form_for @new_listing  do |f| %>
+    <div class="input">
+      <p>
+        Я
+        <%= f.text_field :current_occupation, :placeholder => "[ должность ]", :class =>:span2 %>
+        , и я получаю <%= f.text_field :current_salary, :placeholder => "11 000", :class=>:span2 %>
+        . Город <%= f.text_field :city, :placeholder => "[ Киев ]", :class=>:span2 %>.
+      </p>
+      <br>
+      <br>
+      <p>
+        Я заинтересован ТОЛЬКО в вакансии 
+        <%= f.text_field :future_occupation, :placeholder => "[ должность ]", :class=>:span2 %>
+        с зарплатой как минимум 
+        <%= f.text_field :future_salary, :placeholder => "[ 14 000 ]", :class=>:span2 %>.
+      </p>
+      <br><br>
+      <p>
+        Отправлять рукретеров сюда: <%= f.text_field :email, :placeholder => "myemail@example.com", :class=>:span3 %> (Мы прячем ваш адрес)
+      </p>
+    </div>
+    <div id="pouch_button">
+      <button class="btn span6 large">Добавить!</button>
+    </div>
+    </div>
+  <% end %>
+  </div>
+
+</div>
+

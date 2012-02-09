@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 #  before_filter :authenticate_user!
-  before_filter :user_have_cv!, :only => :index
-  before_filter :guest_or_user
+#  before_filter :user_have_cv!, :only => :index
+#  before_filter :guest_or_user
 
   private
   def guest_or_user

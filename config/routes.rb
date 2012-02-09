@@ -6,7 +6,7 @@ Getajob::Application.routes.draw do
 
   get "employer/index"
 
-  root :to => "home#index"
+  root :to => "listings#new"
 
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/failure' => 'authentications#failure'
@@ -24,6 +24,8 @@ Getajob::Application.routes.draw do
   resources :companies do
     resources :positions
   end
+
+  resources :listings
 
   resource :cv, :only => [:new, :create, :destroy]
   match 'cv/add_experience' => 'cvs#add_experience', :as => :add_experience

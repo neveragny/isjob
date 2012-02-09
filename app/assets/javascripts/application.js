@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require jquery.validate
 //= require facebox
+//= require bootstrap.min
 //= require bootstrap-twipsy
 //= require_tree .
 

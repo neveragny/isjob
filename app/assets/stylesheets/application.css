@@ -5,227 +5,126 @@
  *= require_self
  *= require_tree . 
 */
-/* Specific jumbotrons
-------------------------- */
-/* main docs page */
-body.persona .masthead, body .masthead {
-    background-color: #049cd9;
-    background-repeat: no-repeat;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
-    background-image: -webkit-linear-gradient(#004D9F, #049cd9);
-    background-image: -moz-linear-gradient(#004D9F, #049cd9);
-    background-image: -o-linear-gradient(top, #004D9F, #049cd9);
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#004D9F', endColorstr = '#049cd9', GradientType = 0); /* IE8 and down */
-}
+      /* Specific jumbotrons
+      ------------------------- */
+      /* supporting docs pages */
+      .subhead {
+        background-color: #767d80;
+        background-repeat: no-repeat;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#565d60), to(#767d80));
+        background-image: -webkit-linear-gradient(#565d60, #767d80);
+        background-image: -moz-linear-gradient(#565d60, #767d80);
+        background-image: -o-linear-gradient(top, #565d60, #767d80);
+        background-image: -khtml-gradient(linear, left top, left bottom, from(#565d60), to(#767d80));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#565d60', endColorstr='#767d80', GradientType=0); /* IE8 and down */
+      }
+      .subhead .inner {
+        padding: 36px 0 27px;
+      }
+      .subhead h1,
+      .subhead p {
+        text-align: left;
+      }
+      .subhead h1 {
+        font-size: 40px;
+      }
+      .subhead p a {
+        font-weight: normal;
+      }
+      .jumbotron p.samle_search {
+        text-align: left;
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: lighter;
+      }
+      .jumbotron a.sample_position {
+        border-bottom: 1px dotted #fff;
+        text-decoration:none
+      }
 
-body.company .masthead {
-    background-color: #832577;
-    background-repeat: no-repeat;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#832577), to(#cf63c0));
-    background-image: -webkit-linear-gradient(#832577, #cf63c0);
-    background-image: -moz-linear-gradient(#832577, #cf63c0);
-    background-image: -o-linear-gradient(top, #832577, #cf63c0);
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#832577), to(#cf63c0));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#832577', endColorstr = '#cf63c0', GradientType = 0); /*IE8 and down*/
-}
 
-/* supporting docs pages */
-.subhead {
-    background-color: #767d80;
-    background-repeat: no-repeat;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#565d60), to(#767d80));
-    background-image: -webkit-linear-gradient(#565d60, #767d80);
-    background-image: -moz-linear-gradient(#565d60, #767d80);
-    background-image: -o-linear-gradient(top, #565d60, #767d80);
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#565d60), to(#767d80));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#565d60', endColorstr = '#767d80', GradientType = 0); /* IE8 and down */
-}
-
-.subhead .inner {
-    padding: 36px 0 27px;
-}
-
-.subhead h1,
-.subhead p {
-    text-align: left;
-}
-
-.subhead h1 {
-    font-size: 40px;
-}
-
-.subhead p a {
-    font-weight: normal;
-}
-
-.jumbotron p.samle_search {
-    text-align: left;
-    font-size: 20px;
-    line-height: 27px;
-    font-weight: lighter;
-}
-
-.jumbotron a.sample_position {
-    border-bottom: 1px dotted #fff;
-    text-decoration: none
-}
 
 header nav ul {
-    list-style: none;
-    margin: 0 0 2em;
-    padding: 0;
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
 }
-
 header nav ul li {
-    display: inline;
+  display: inline;
 }
-
 #flash_notice, #flash_alert {
-    padding: 5px 8px;
-    margin: 10px 0;
+  padding: 5px 8px;
+  margin: 10px 0;
 }
-
 #flash_notice {
-    background-color: #CFC;
-    border: solid 1px #6C6;
+  background-color: #CFC;
+  border: solid 1px #6C6;
 }
-
 #flash_alert {
-    background-color: #FCC;
-    border: solid 1px #C66;
+  background-color: #FCC;
+  border: solid 1px #C66;
 }
 
 div.alert-message {
-    position: absolute;
-    right: 5px;
+	position: absolute;
+	right:5px;
 }
 
 /*span.help-inline div.alert-image {*/
-/*display: inline;*/
-/*width: 24px;*/
-/*height: 24px;*/
-/*background: url('/assets/alert_square_red.png')*/
+    /*display: inline;*/
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*background: url('/assets/alert_square_red.png')*/
 /*}*/
 
-/*div.error {*/
-/*border: 1px solid #EE5F5B;*/
-/*border-radius: 3px 3px 3px 3px;*/
-/*}*/
+div.error {
+  border: 1px solid #EE5F5B;
+  border-radius: 3px 3px 3px 3px;
+}
 
 /* MASTHEAD TABS */
 
 #siteNav {
-    list-style: none outside none;
-    /*  margin-top: 42px; */
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 940px;
+  list-style: none outside none;
+/*  margin-top: 42px; */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 940px; 
 }
 
 #siteNav li {
-    float: left;
-    margin-right: 3px;
-    border-bottom: 1px solid #ADDFEA;
+  float:left;
+  margin-right: 3px;
+  border-bottom: 1px solid #ADDFEA;
 }
 
 #siteNav li a {
-    background: url("/assets/sprites/buttons-general.gif") repeat-x scroll 0 -984px transparent;
-    border-style: solid solid none;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-width: 1px 1px 0;
-    color: #0A5E72;
-    float: left;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 9px 18px 7px;
-    text-decoration: none;
+  background: url("/assets/sprites/buttons-general.gif") repeat-x scroll 0 -984px transparent;
+  border-color: #ADDFEA #ADDFEA -moz-use-text-color;
+  border-style: solid solid none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-width: 1px 1px 0;
+  color: #0A5E72;
+  float: left;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 9px 18px 7px;
+  text-decoration: none;
 
-}
-
-body.company #siteNav li a {
-    border-color: #C45BB7 #C45BB7 -moz-use-text-color;
-}
-
-body.user #siteNav li a {
-    border-color: #ADDFEA #ADDFEA -moz-use-text-color;
 }
 
 #siteNav li a:hover {
-    background: url("/assets/sprites/buttons-general.gif") repeat-x scroll 0 -1026px transparent;
+  background: url("/assets/sprites/buttons-general.gif") repeat-x scroll 0 -1026px transparent;
 }
 
-form span.error {
-    margin-left: 3px;
-    color: red;
+.listings div.hero-unit {
+  background-color: #FFFFFF;
+  border: 1px dashed lightGray;
+  padding: 30px;
 }
 
-/*FORMS*/
-form#new_user_detail .actions {
-    width: 808px;
-}
-
-/* VALIDATIONS  */
-form label.message.error {
-    float: right;
-    color: red;
-}
-
-/* LOGIN POPUP */
-
-a.forgot-password {
-    margin-left: 7px;
-    text-decoration: underline;
-}
-
-/* AUTH BUTTONS*/
-
-.social-signin a {
-    display: inline-block;
-    position: relative;
-    height: 31px;
-    line-height: 31px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
-    -moz-transition-property: all;
-    -webkit-transition-property: all;
-    -o-transition-property: all;
-    transition-property: all;
-    -moz-transition-duration: 200ms;
-    -webkit-transition-duration: 200ms;
-    -o-transition-duration: 200ms;
-    transition-duration: 200ms;
-}
-
-.social-signin a.vk {
-    width: 121px;
-    -moz-box-shadow: #4d7199 0 0 0;
-    -webkit-box-shadow: #4d7199 0 0 0;
-    -o-box-shadow: #4d7199 0 0 0;
-    box-shadow: #4d7199 0 0 0;
-}
-
-.social-signin a.vk:hover {
-    -moz-box-shadow: #4d7199 0 0 5px;
-    -webkit-box-shadow: #4d7199 0 0 5px;
-    -o-box-shadow: #4d7199 0 0 5px;
-    box-shadow: #4d7199 0 0 5px;
-}
-
-.social-signin a.vk div {
-    background: url(/assets/auth-buttons.png) 0 -128px;
-}
-
-.social-signin a div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+div.span9.search {
+  margin: 0 -20px;
 }

@@ -1,0 +1,12 @@
+<div class="container">
+  <table class="table">
+    <tbody>
+      <% @listings.each do |l| %>
+        <tr>
+          <td>Я <b><%= l.current_occupation %></b>, и я получаю <b></b>.Город <b></b><br>
+          <span>Я заинтересован ТОЛЬКО в вакансии <b></b> с зарплатой как минимум <b></b> . </span>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>
