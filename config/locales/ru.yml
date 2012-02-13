@@ -85,8 +85,6 @@ ru:
       city: Город
       time_period: Период обучения
 
-
-
 # ActiveRecord::Errors
 
   activerecord:     
@@ -136,6 +134,21 @@ ru:
               blank: Заголовок не указан
             expirience:
               blank: Опыт неуказан
+        listing:
+          attributes:
+            current_occupation:
+              blank: текущая должность не указана
+            current_salary:
+              blank: текущая зарплата не указана
+            city:
+              blank: город не указан
+            future_occupation:
+              blank: желаемая должность не указана
+            future_salary:
+              blank: желаемая зарплата не указана
+            email:
+              blank: email не указан
+              invalid: некорректный email
       template:              
         body: There were problems with the following fields             
         header:

@@ -15,9 +15,11 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 
 gem 'formtastic'
 gem 'simple_form'
+gem 'dynamic_form'
 #gem 'client_side_validations' 
 
 gem 'tlsmail'
+gem 'nokogiri'
 
 
 # ASSETS

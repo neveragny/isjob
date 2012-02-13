@@ -1,8 +1,15 @@
 <div class="hero-unit">
+  
+
   <h2>Я замечательный, и я хочу что-то лучше...</h2>
   <br>
   <%= form_for @new_listing  do |f| %>
     <div class="input">
+
+    <% @new_listing.errors.each_with_index do |msg, i| %>
+    <li><%= msg[1] %></li>
+    <% end %>
+
       <p>
         Я
         <%= f.text_field :current_occupation, :placeholder => "[ должность ]", :class =>:span2 %>
@@ -19,7 +26,8 @@
       </p>
       <br><br>
       <p>
-        Отправлять рукретеров сюда: <%= f.text_field :email, :placeholder => "myemail@example.com", :class=>:span3 %> (Мы прячем ваш адрес)
+        Отправлять рукретеров сюда: <%= f.text_field :email, :placeholder => "myemail@example.com", :class=>:span3 %>
+        <i> (Мы прячем ваш адрес)</i>
       </p>
     </div>
     <div id="pouch_button">

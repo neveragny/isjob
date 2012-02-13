@@ -12,6 +12,10 @@ class ListingsController < ApplicationController
     @new_listing = Listing.new(params[:listing])
     if @new_listing.save 
       redirect_to :listings 
+    else 
+      render :new
     end
-end
+
   end
+
+end

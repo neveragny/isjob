@@ -128,3 +128,13 @@ div.error {
 div.span9.search {
   margin: 0 -20px;
 }
+
+form input.error {
+    border-color: #EE5F5B;
+    color: #B94A48;
+}
+
+form input.error:focus {
+  border-color: #953B39;
+  box-shadow: 0 0 6px #D59392;
+}
